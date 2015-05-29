@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.2.21)  29 MAY 2015 15:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.2.21)  29 MAY 2015 16:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**seminarpaper_empty.tex
-(./seminarpaper_empty.tex
+**seminarpaper_speck.tex
+(./seminarpaper_speck.tex
 LaTeX2e <2014/05/01>
 Babel <3.9l> and hyphenation patterns for 79 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -428,8 +428,8 @@ Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 \c@axiom=\count145
 \c@definition=\count146
 
-(./seminarpaper_empty.aux)
-\openout1 = `seminarpaper_empty.aux'.
+(./seminarpaper_speck.aux)
+\openout1 = `seminarpaper_speck.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 123.
 LaTeX Font Info:    ... okay on input line 123.
@@ -540,14 +540,14 @@ e
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-(./seminarpaper_empty.toc)
+(./seminarpaper_speck.toc)
 \tf@toc=\write5
-\openout5 = `seminarpaper_empty.toc'.
+\openout5 = `seminarpaper_speck.toc'.
 
  [1] [2
 
-] (./seminarpaper_empty.bbl) [3]
-(./seminarpaper_empty.aux) ) 
+] (./seminarpaper_speck.bbl) [3]
+(./seminarpaper_speck.aux) ) 
 Here is how much of TeX's memory you used:
  6261 strings out of 493105
  85062 string characters out of 6137072
@@ -561,7 +561,7 @@ msfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 r17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on seminarpaper_empty.pdf (5 pages, 81424 bytes).
+Output written on seminarpaper_speck.pdf (5 pages, 81317 bytes).
 PDF statistics:
  40 PDF objects out of 1000 (max. 8388607)
  27 compressed objects within 1 object stream
