@@ -193,6 +193,7 @@ Deep learning and the interrelated deep neural networks are one of the most succ
 
 
 
+
 \section{Introduction}
 \label{sec:introduction}
 
@@ -207,6 +208,7 @@ In addition to that a comprehension of deep neural networks and deep learning wi
 For solving complex problems in classification, recognition, tracking etc. domains convolutional neural networks have shown good performances so they will be focused later on. Especially the latest research on these topics and fields of application will be viewed in detail.
 \\
 An important contest for classification tasks is measuring the performance of such architectures with the ImageNet LSVRC databases and for videos the YouTube 1M database by Google. Both topics will be introduced. One very interesting thing, for example, is the fact that pre-trained networks on videos showing sports did better on non-sports related video categorization than "fresh" networks.
+
 
 
 
@@ -230,6 +232,9 @@ However, such architectures are insufficient for more complex tasks because they
 \end{figure}
 
 
+
+
+
 \section{Deep neural networks}
 \label{sec:dnn}
 
@@ -238,6 +243,7 @@ Classic, small neural networks can not succeed on complex tasks such as object d
 As computing power rises and GPU-computing became popular neural networks are no longer limited to a few layers containing just some neurons. Modern solutions (2014) can carry tens of layers with thousands of neurons and millions of connections \cite{GoogleLargeScaleVideoClassification-Karpathy}. Complex structures like this enable computing complex problems which arise with tasks like image classification in real world images.
 \\
 Deep neural networks with GPU-optimized code can be considerably faster than CPU-optimized code and hence allow larger, more accurate architectures \cite{MultiColumnDeepNeuralNetworksClassification-Ciresan}.
+
 
 
 
@@ -309,6 +315,8 @@ The last layers of a CNN regularly consist of fully-connected layers. In compari
 
 
 
+
+
 \section{Research and field of application}
 \label{sec:research_and_application}
 
@@ -332,12 +340,51 @@ This technique can boost the training data set by hundreds or even thousands of 
 \\
 \\
 Another procedure to reduce overfitting and test errors is called "dropout" \cite{ImprovingNeuralNetworksDropout-Hinton-Krizhevsky}. The idea is to set the output of hidden neurons to zero with a certain probability, mostly $0.5$ \cite{ImangeNetClassificationCNN-Krizhevsky}. This prevents neurons of co-adapting each other which means that neurons can no longer distort its output because they "familiarize" with some neurons of their parent layer and ignore others. With "deactiviting" random neurons in each learning step the presence of an other neuron is not guaranteed so neurons are more likely to learn and focus on robust features rather than on single attractive neurons.
+\\
+This has shown especially effective when applied in fully-connected layers \cite{ImangeNetClassificationCNN-Krizhevsky}.
+\\
+\\
+Normally the transfer function for a neurons output is modeled a hyperbolic tangent or sigmoid function but those functions can increase the training time \cite{ImangeNetClassificationCNN-Krizhevsky}. Using Rectified Linear Units (ReLUs) \cite{RectifiedLinearUnits-Hinton} with a function like $f(x) = max(0, x)$ not only makes CNNs train a lot faster but also slightly reduces the training error, because low training error rates are reached faster (in less epochs) the whole network concentrates on robust features faster and this has an additional effect of convergence.
+\\
+In Krizhevsky's architecture the 25\% error rate on the CIFAR-10 training dataset is reached six times faster with ReLUs than with classic hyperbolic tangent transfer functions \cite{ImangeNetClassificationCNN-Krizhevsky}.
+
 
 \subsection{Video classification}
-More details / information about state of the art object/video detection/classification.
+
+A more challenging and likewise interesting task is the classification of videos because instead of images where the input remains static the input of videos changes over time.
+\\
+CNNs already showed "state-of-the-art" results in image recognition and classification tasks so experiments with videos were just a matter of time. A huge problem was the changing input of videos over time in combination with the long periods of training for CNNs. One solution figured out by a group of researchers of Stanford and Google was to improve the runtime performance. They split up the input data in two different streams, the "context" and the "fovea" stream and created a multiresolutional architecture \cite{GoogleLargeScaleVideoClassification-Karpathy}.
+\\
+The original input dimension was 178x178. The fovea stream keeps track of the centered 89x89 pixels of a frame while the context stream analyzes the whole frame but downsampled to a size of 89x89 total. Therefore the total input dimensionality is halfed \cite{GoogleLargeScaleVideoClassification-Karpathy}. An illustration of this architecture is shown in figure \ref{fig:google-architecture-two-streams}.
+\\
+Four different solutions have been introduced by Karpathy et al. to create CNNs capable of classifying videos properly: Single Frame, Early Fusion, Late Fusion and Slow Fusion.
+\\
+Single Frame classification is an adoption already used for classifying images: only one image is being classified at a time.
+\\
+Early Fusion combines the pixel input information for a specific time window.
+\\
+Late Fusion calculates two different single frames which are combined at the last fully-connected layers.
+\\
+Slow Fusion is a mix of Early and Late Fusion: Several input images pixel information is combined two several streams and those streams are additionally combined every few layers.
+\\
+According to Karpathy et al. \cite{GoogleLargeScaleVideoClassification-Karpathy} Slow Fusion had the best results with top-1 and top-5 error rates of 60.9\% and 80.2\%.
+
+\begin{figure}[H]
+	\centerline{
+		\includegraphics[width=0.95\textwidth]{google-architecture.png}
+	}
+	{\caption{CNN architecture by Karpathy et al. The input information is processed in parallel by the two streams. Graphics retrieved from "Large-scale Video Classification with Convolutional Neural Networks" by Andrej Karpathy et al. \cite{GoogleLargeScaleVideoClassification-Karpathy}}\label{fig:google-architecture-two-streams}}
+\end{figure}
 
 
 \subsection{Object tracking}
+
+Object tracking in videos is an even more complex scenario because some object in a video has to be recognized and followed by its position over time. Varying background, changing in the lighting, unexpected motions etc. render this a challenging task.
+\\
+One supposed solution is the use of stacked denoising autoencoders to learn common features of a dataset and then have an additional deep neural network for tracking those learned patterns over time \cite{LearningDeepCompactImageTracking-Wang}.
+\\
+Also some kind of preprocessing with particle filters showed good results for tracking purposes \cite{LearningDeepCompactImageTracking-Wang}.
+
 
 
 

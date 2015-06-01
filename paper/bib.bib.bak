@@ -2,7 +2,7 @@
 % Encoding: UTF-8
 
 
-@Article{Ciresan2012classification,
+@Article{MultiColumnDeepNeuralNetworksClassification-Ciresan,
   Title                    = {Multi-column deep neural networks for image classification},
   Author                   = {Ciresan, D. and Meier, U. and Schmidhuber, J.},
   Journal                  = {Computer Vision and Pattern Recognition (CVPR), 2012 IEEE Conference on},
@@ -13,6 +13,33 @@
 
   Abstract                 = {Traditional methods of computer vision and machine learning cannot match human performance on tasks such as the recognition of handwritten digits or traffic signs. Our biologically plausible, wide and deep artificial neural network architectures can. Small (often minimal) receptive fields of convolutional winner-take-all neurons yield large network depth, resulting in roughly as many sparsely connected neural layers as found in mammals between retina and visual cortex. Only winner neurons are trained. Several deep neural columns become experts on inputs preprocessed in different ways; their predictions are averaged. Graphics cards allow for fast training. On the very competitive MNIST handwriting benchmark, our method is the first to achieve near-human performance. On a traffic sign recognition benchmark it outperforms humans by a factor of two. We also improve the state-of-the-art on a plethora of common image classification benchmarks.},
   Timestamp                = {2015.04.27}
+}
+
+@Conference{RectifiedLinearUnits-Hinton,
+  Title                    = {Rectified Linear Units Improve Restricted Boltzmann Machines Vinod Nair},
+  Author                   = {Geoffrey E. Hinton},
+  Booktitle                = {Proc. 27th International Conference on Machine Learning},
+  Year                     = {2010},
+
+  HowPublished             = {Department of Computer Science, University of Toronto, Toronto, ON M5S 2G4, C
+anada}
+}
+
+@Article{ImprovingNeuralNetworksDropout-Hinton-Krizhevsky,
+  Title                    = {Improving neural networks by preventing co-adaptation of feature detectors},
+  Author                   = {Geoffrey E. Hinton and
+ Nitish Srivastava and
+ Alex Krizhevsky and
+ Ilya Sutskever and
+ Ruslan Salakhutdinov},
+  Journal                  = {CoRR},
+  Year                     = {2012},
+  Volume                   = {abs/1207.0580},
+
+  Bibsource                = {dblp computer science bibliography, http://dblp.org},
+  Biburl                   = {http://dblp.uni-trier.de/rec/bib/journals/corr/abs-1207-0580},
+  Timestamp                = {Wed, 10 Oct 2012 21:28:53 +0200},
+  Url                      = {http://arxiv.org/abs/1207.0580}
 }
 
 @InProceedings{GoogleLargeScaleVideoClassification-Karpathy,

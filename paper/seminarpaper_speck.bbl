@@ -6,6 +6,13 @@ D.~Ciresan, U.~Meier, and J.~Schmidhuber.
 \newblock {\em Computer Vision and Pattern Recognition (CVPR), 2012 IEEE
   Conference on}, pages 3642 -- 3649, June 2012.
 
+\bibitem{RectifiedLinearUnits-Hinton}
+Geoffrey~E. Hinton.
+\newblock Rectified linear units improve restricted boltzmann machines vinod
+  nair.
+\newblock In {\em Proc. 27th International Conference on Machine Learning},
+  2010.
+
 \bibitem{ImprovingNeuralNetworksDropout-Hinton-Krizhevsky}
 Geoffrey~E. Hinton, Nitish Srivastava, Alex Krizhevsky, Ilya Sutskever, and
   Ruslan Salakhutdinov.
@@ -40,5 +47,12 @@ Christian Szegedy, Alexander Toshev, and Dumitru Erhan.
 \newblock In C.J.C. Burges, L.~Bottou, M.~Welling, Z.~Ghahramani, and K.Q.
   Weinberger, editors, {\em Advances in Neural Information Processing Systems
   26}, pages 2553--2561. Curran Associates, Inc., 2013.
+
+\bibitem{LearningDeepCompactImageTracking-Wang}
+Naiyan Wang and Dit-Yan Yeung.
+\newblock Learning a deep compact image representation for visual tracking.
+\newblock In C.J.C. Burges, L.~Bottou, M.~Welling, Z.~Ghahramani, and K.Q.
+  Weinberger, editors, {\em Advances in Neural Information Processing Systems
+  26}, pages 809--817. Curran Associates, Inc., 2013.
 
 \end{thebibliography}
