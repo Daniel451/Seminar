@@ -6,6 +6,12 @@ D.~Ciresan, U.~Meier, and J.~Schmidhuber.
 \newblock {\em Computer Vision and Pattern Recognition (CVPR), 2012 IEEE
   Conference on}, pages 3642 -- 3649, June 2012.
 
+\bibitem{GoogleLargeScaleVideoClassification-Karpathy}
+Andrej Karpathy, George Toderici, Sanketh Shetty, Thomas Leung, Rahul
+  Sukthankar, and Li~Fei-Fei.
+\newblock Large-scale video classification with convolutional neural networks.
+\newblock In {\em CVPR}, 2014.
+
 \bibitem{ImangeNetClassificationCNN-Krizhevsky}
 Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E. Hinton.
 \newblock Imagenet classification with deep convolutional neural networks.

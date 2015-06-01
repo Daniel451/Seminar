@@ -59,6 +59,7 @@
 %\usepackage[font=footnotesize,labelfont=rm]{subfig}	% Pictures in a floating environment
 \usepackage{tabularx}										% Tables with fixed width but variable rows
 \usepackage{url,xspace,boxedminipage}   % Accurate display of URLs
+\usepackage{wrapfig} % wrapped figures (with text floating around)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Configurationen:
@@ -209,7 +210,7 @@ Approaches for object detection \cite{DeepNeuralNetworksObjectDetection-Szegedy}
 \section{Background information: Artificial neural networks}
 \label{sec:ann}
 
-Briefly introduction for classic artificial neural networks without GPU computing.
+Artificial neural networks are intended to approximate certain functions for machine learning purposes. Fix/static algorithms can be calculated fast by modern computers but fail most times at disciplines requiring "intelligent" behavior. A classic example is recognizing handwritten digits because the shape, color and contrast highly vary in dependence of the used pencil and, of course, of the writing style.
 
 
 
@@ -217,7 +218,9 @@ Briefly introduction for classic artificial neural networks without GPU computin
 \section{Deep neural networks}
 \label{sec:dnn}
 
-Overview for classic deep neural networks. Details about different concepts and approaches.
+Classic, small neural networks can not succeed on complex tasks such as object detection in high-resolution, real world images. The variety of features, blurry backgrounds, one or several objects in an image and other factors render detection, tracking and classification tasks challenging. The ability to detect, track and distinguish real world objects demands complex structures with a much larger capability of solving complex problems.
+\\
+As computing power rises and GPU-computing became popular neural networks are no longer limited to a few layers containing just some neurons. Modern solutions (2014) can carry tens of layers with thousands of neurons and millions of connections \cite{GoogleLargeScaleVideoClassification-Karpathy}. Complex structures like this enable computing complex problems which arise with tasks like image classification in real world images.
 
 
 
@@ -232,32 +235,60 @@ For example, a MLP with three layers, an input layer with 100 neurons, a hidden 
 Convolutional neural networks (CNNs) are inspired by biology, instead of connecting every pixels information directly with a neuron to process its information it filters the information in the first layers \cite{ImangeNetClassificationCNN-Krizhevsky}. This procedure is similar to the on processes happening when an biological eye receives stimuli.
 \\
 The receptive field \footnote{\url{http://en.wikipedia.org/wiki/Receptive_field}} has a vast amount of photoreceptor cells \footnote{\url{http://en.wikipedia.org/wiki/Photoreceptor_cell}} gathering information and converging the received information on to distinctly less retinal ganglion cells \footnote{\url{http://en.wikipedia.org/wiki/Retinal_ganglion_cell}}. This process maps several features and reduces the input dimensionality as well as distinguishes the information to separate "channels" which are then transfered to the corresponding neurons to process features such as color, motion, shapes and so on separately \cite{DeepHierarchiesVisualCortex-kruger}.
-\\
+\begin{figure}
+	\centerline{
+		\includegraphics[width=0.3\textwidth]{animal-original.png}
+		\qquad
+		\includegraphics[width=0.3\textwidth]{animal-edge-detection.png}
+	}
+	{\caption{Left side: original image, right side: edge-detection kernel processed image. Original image by Michael Plotke, 28th of January, 2013. Open creative commons license.
+			\protect\url{http://upload.wikimedia.org/wikipedia/commons/5/50/Vd-Orig.png} and \protect\url{http://upload.wikimedia.org/wikipedia/commons/6/6d/Vd-Edge3.png}}\label{fig:animal-edge-detection}}
+\end{figure}
 The idea of CNNs is based on this biological processes, the information of an input image is convolved by several filters which try to extract interesting features in the first layer and in following layers this information is pooled and subsampled \cite{ImangeNetClassificationCNN-Krizhevsky}.
 \\
 Convolution itself is the applying of a function repeatedly of the output of another function and in the context of CNNs it is applying different "filters" over an image to extract the already mentioned features. A convolution layer extracts the pixel information out of an image with kernels \footnote{\url{http://en.wikipedia.org/wiki/Kernel_(image_processing)}}.
 \\
 \\
-Example for a convolution layer: In figure \ref{fig:animal-edge-detection} you can see an image of an animal on the left side (original image) and a kernel processed one on the right side. The used kernel matrix was:
+Example for a convolution layer: In figure \ref{fig:animal-edge-detection} you can see an image of an animal on the left side (original image) and a kernel processed one on the right side. The used kernel matrix for filtering the left image is shown in equation (\ref{equation:kernal-matrix}).
+\begin{wrapfigure}{r}{0.5\textwidth}
+	\begin{equation}
+		\label{equation:kernal-matrix}
+		K_M =
+		\begin{bmatrix}
+		-1 & -1 & -1 \\
+		-1 & 8 & -1 \\
+		-1 & -1 & -1 \\
+		\end{bmatrix}
+	\end{equation}
+\end{wrapfigure}
+So basically each pixels information in the right, processed image is the result of applying the kernel matrix (\ref{equation:kernal-matrix}) on the same pixel (and the neighboring pixels) in the left image. With a wide variety of different kernels several different features can be extracted from an image. Typical CNNs use tens to hundreds of different kernel filters gathering as much features from an image as possible. The resulting pixel processed by a kernel filter is calculated via the formula:
 \begin{equation}
-	\label{equation:kernal-matrix}
-	\begin{bmatrix}
-	-1 & -1 & -1 \\
-	-1 & 8 & -1 \\
-	-1 & -1 & -1 \\
-	\end{bmatrix}
+I_{out}(x,y) =
+\sum_{a=1}^{3} \sum_{b=1}^{3} I_{in} (x+a-c_x, y+b-c_y) * K_M(a,b)
 \end{equation}
-So basically each pixels information in the right, processed image is the result of applying the kernel matrix (\ref{equation:kernal-matrix}) on the same pixel (and the neighboring pixels) in the left image.
-
-\begin{figure}
-  	\centerline{
-  		\includegraphics[width=0.3\textwidth]{animal-original.png}
-  		\qquad
-  		\includegraphics[width=0.3\textwidth]{animal-edge-detection.png}
-  		}
- 	{\caption{Left side: original image, right side: edge-detection kernel processed image. Original image by Michael Plotke, 28th of January, 2013. Open creative commons license.
- 	\protect\url{http://upload.wikimedia.org/wikipedia/commons/5/50/Vd-Orig.png} and \protect\url{http://upload.wikimedia.org/wikipedia/commons/6/6d/Vd-Edge3.png}}\label{fig:animal-edge-detection}}
- \end{figure}
+Where $c_x$ is the coordinate of the x-center and $c_y$ the coordinate of the y-center of the input image.
+For some example input image $I_{in}$ with a dimension of 3x3 pixels the center pixel (coordinates $x=2, y=2$) of the kernel processed output image $I_{out}$ using the kernel filter $K_M$ of equation (\ref{equation:kernal-matrix}) would be calculated like this:
+\begin{gather*}
+	I_{in} =
+	\begin{bmatrix}
+	46 & 42 & 50 \\
+	44 & 65 & 56 \\
+	41 & 52 & 58 \\
+	\end{bmatrix}
+	\\
+	\\
+	I_{out}(2,2) = 46 * (-1) + 42 * (-1) + 50 * (-1) + 44 * (-1) + 55 * 8 + 56 * (-1)
+	\\+ \;41 * (-1) + 52 * (-1) + 58 * (-1) = 131
+\end{gather*}
+After processing this filter to the whole image edges would be highlighted and the rest nearly black, like in figure \ref{fig:animal-edge-detection} so that shape features are extracted out of the original image.
+\\
+\\
+Another idea of CNNs is subsampling layers following convolutional layers. Subsampling reduces the overall size of information and therefore not only saves resources for the later classification tasks but also strengthens the detected features in an image. Often max-pooling is used as a subsampling strategy in CNNs \cite{DeepNeuralNetworksObjectDetection-Szegedy, ImangeNetClassificationCNN-Krizhevsky} which determines the most distinctive pixel in a given area. A max-pooling algorithm splits the input in grids and selects the maximum value out of each grid, thus non-maximal values are deleted so that only those information continues to exist which best represents the current feature. Before applying max-pooling the input represents the presence of a feature in one or only some pixels. After this kind of dimensionality reduction the assertion is enlarged to whole area, corresponding to several pixels of the original image. 
+\\
+Additionally this technique provides robustness to the position of a feature in an image, as the position becomes less important.
+\\
+\\
+The last layers of a CNN regularly consist of fully-connected layers. In comparison to feature extraction, strengthening and dimensionality reduction those layers are supposed to take all gathered features / information and make predictions. If the supplied input contains big shapes of ears, legs etc., maybe filtered trunks, grey-ish color maps and so on the fully-connected layers have to collect and mix all those gathered features / information and to recognize it for finally classifying it as an image of elephants.
 
 
 
