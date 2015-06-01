@@ -314,8 +314,24 @@ The last layers of a CNN regularly consist of fully-connected layers. In compari
 
 
 \subsection{Image classification}
-More details / information about state of the art object/image detection/classification.
 
+Alex Krizhevsky et al. have shown in "ImageNet Classification with Deep Convolutional Neural Networks" \cite{ImangeNetClassificationCNN-Krizhevsky} the good performance of CNNs in image classification tasks. Their architecture achieved top-1 and top-5 error rates of 37.5\% and 17.0\% on the ImageNet LSVRC-2010 contest which was the best result in 2012.
+\\
+The CNN consists of about $650,000$ neurons with $60$ million parameters and nine layers total.
+\\
+The only preproduction made were resizing the images to a resolution of 256x256 because the images in ImageNet vary in resolution. Out of those images 224x224x3 dimensional patches are extracted. 224x224 in horizontal/vertical dimension and 3 different colors (RBG images). The first layer is a convolution layer which filters the input of 224x224x3 to a kernel map of 96 kernels with the size of 11x11x3 each. This slightly reduces the dimensionality of the input image and extracts 96 different features out of the input.
+\\
+The second layer is a max-pooling layer which filters the information via 256 5x5x48 kernels. Therefore the dimensionality is further reduced and already extracted features strengthened.
+\\
+Afterwards convolutional and max-pooling layers follow the the fifth layer until three fully-connected layers with 4096 neurons each try to collect and mix the information and then classify the images.
+\\
+\\
+One key problem with deep learning structures and especially CNNs is overfitting. Because of the size of those networks a huge amount of training data is needed. An interesting method used by Krizhevsky is to design first layer (224x224x3 for Krizhevsky's architecture) slightly smaller than input data (256x256x3) and then not just apply kernel filters on those input data but first extract random 224x224x3 patches out of the original data. Additionally they the horizontal reflections of those patches and altered the intensities of the RGB channels.
+\\
+This technique can boost the training data set by hundreds or even thousands of samples \cite{ImangeNetClassificationCNN-Krizhevsky}.
+\\
+\\
+Another procedure to reduce overfitting and test errors is called "dropout" \cite{ImprovingNeuralNetworksDropout-Hinton-Krizhevsky}. The idea is to set the output of hidden neurons to zero with a certain probability, mostly $0.5$ \cite{ImangeNetClassificationCNN-Krizhevsky}. This prevents neurons of co-adapting each other which means that neurons can no longer distort its output because they "familiarize" with some neurons of their parent layer and ignore others. With "deactiviting" random neurons in each learning step the presence of an other neuron is not guaranteed so neurons are more likely to learn and focus on robust features rather than on single attractive neurons.
 
 \subsection{Video classification}
 More details / information about state of the art object/video detection/classification.
