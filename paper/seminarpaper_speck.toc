@@ -3,7 +3,10 @@
 \contentsline {section}{\numberline {1}Introduction}{2}
 \contentsline {section}{\numberline {2}Background information: Artificial neural networks}{2}
 \contentsline {section}{\numberline {3}Deep neural networks}{2}
-\contentsline {section}{\numberline {4}Convolutional neural networks}{2}
-\contentsline {section}{\numberline {5}Object detection and tracking}{2}
-\contentsline {section}{\numberline {6}Conclusion}{2}
-\contentsline {section}{Bibliography}{3}
+\contentsline {section}{\numberline {4}Convolutional neural networks and image processing}{2}
+\contentsline {section}{\numberline {5}Research and field of application}{3}
+\contentsline {subsection}{\numberline {5.1}Image classification}{3}
+\contentsline {subsection}{\numberline {5.2}Video classification}{3}
+\contentsline {subsection}{\numberline {5.3}Object tracking}{4}
+\contentsline {section}{\numberline {6}Conclusion}{4}
+\contentsline {section}{Bibliography}{5}

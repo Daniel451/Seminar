@@ -1,19 +1,19 @@
 \begin{thebibliography}{1}
 
-\bibitem{Ciresan2012classification}
+\bibitem{MultiColumnDeepNeuralNetworksClassification-Ciresan}
 D.~Ciresan, U.~Meier, and J.~Schmidhuber.
 \newblock Multi-column deep neural networks for image classification.
 \newblock {\em Computer Vision and Pattern Recognition (CVPR), 2012 IEEE
   Conference on}, pages 3642 -- 3649, June 2012.
 
-\bibitem{Krizhevsky2012classification}
+\bibitem{ImangeNetClassificationCNN-Krizhevsky}
 Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E. Hinton.
 \newblock Imagenet classification with deep convolutional neural networks.
 \newblock In F.~Pereira, C.J.C. Burges, L.~Bottou, and K.Q. Weinberger,
   editors, {\em Advances in Neural Information Processing Systems 25}, pages
   1097--1105. Curran Associates, Inc., 2012.
 
-\bibitem{kruger2013deep}
+\bibitem{DeepHierarchiesVisualCortex-kruger}
 Norbert Kruger, Peter Janssen, Sinan Kalkan, Markus Lappe, Ales Leonardis,
   Justus Piater, Antonio~Jose Rodriguez-Sanchez, and Laurenz Wiskott.
 \newblock Deep hierarchies in the primate visual cortex: What can we learn for
@@ -21,14 +21,14 @@ Norbert Kruger, Peter Janssen, Sinan Kalkan, Markus Lappe, Ales Leonardis,
 \newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
   on}, 35(8):1847--1871, 2013.
 
-\bibitem{Szegedy2013detection}
+\bibitem{DeepNeuralNetworksObjectDetection-Szegedy}
 Christian Szegedy, Alexander Toshev, and Dumitru Erhan.
 \newblock Deep neural networks for object detection.
 \newblock In C.J.C. Burges, L.~Bottou, M.~Welling, Z.~Ghahramani, and K.Q.
   Weinberger, editors, {\em Advances in Neural Information Processing Systems
   26}, pages 2553--2561. Curran Associates, Inc., 2013.
 
-\bibitem{Wang2013tracking}
+\bibitem{LearningDeepCompactImageTracking-Wang}
 Naiyan Wang and Dit-Yan Yeung.
 \newblock Learning a deep compact image representation for visual tracking.
 \newblock In C.J.C. Burges, L.~Bottou, M.~Welling, Z.~Ghahramani, and K.Q.

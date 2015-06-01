@@ -197,11 +197,11 @@ Deep neural networks are one of the most successful learning strategies at the m
 
 Deep learning is subcategory of machine learning and the focus of this paper will be deep neural networks in the context of deep learning.
 \\
-An overview of image classification will be made \cite{Ciresan2012classification} \cite{Krizhevsky2012classification}.
+An overview of image classification will be made \cite{MultiColumnDeepNeuralNetworksClassification-Ciresan} \cite{ImangeNetClassificationCNN-Krizhevsky}.
 \\
-The visual cortex and deep learning strategies will be introduced \cite{kruger2013deep}.
+The visual cortex and deep learning strategies will be introduced \cite{DeepHierarchiesVisualCortex-kruger}.
 \\
-Approaches for object detection \cite{Szegedy2013detection} and tracking \cite{Wang2013tracking} via deep neural networks will be discussed.
+Approaches for object detection \cite{DeepNeuralNetworksObjectDetection-Szegedy} and tracking \cite{LearningDeepCompactImageTracking-Wang} via deep neural networks will be discussed.
 
 
 
@@ -222,18 +222,58 @@ Overview for classic deep neural networks. Details about different concepts and 
 
 
 
-\section{Convolutional neural networks}
+\section{Convolutional neural networks and image processing}
 \label{sec:cnn}
 
-Description of convolutional neural networks. Further information about image classification tasks realized with CNNs.
+For deep learning purposes (classic / fully-connected) multilayer perceptrons consume a sizable amount of resources for proper training when they are designed to solve complex tasks because the amount of neurons and especially weights increases rapidly with the network's size.
+\\
+For example, a MLP with three layers, an input layer with 100 neurons, a hidden layer with 25 neurons and an output layer with 10 neurons for classifying images with a size of 10x10 pixels into 10 different classes would have $100 * 25 + 25 * 10 = 2,750$ weights/connections. Training this net would already result in a big time and space complexity. Moreover, as features in images capturing real world scenes are distributed in certain patterns (they cover spatially local correlation, such as shapes), there is no need to have every pixels information being processed by one neuron. Actually in most cases results would be even better, if the pixels information is pre-processed, for instance by edge detection filters but a fully connected layer of neurons is not an optimal solution for this task.
+\\
+Convolutional neural networks (CNNs) are inspired by biology, instead of connecting every pixels information directly with a neuron to process its information it filters the information in the first layers \cite{ImangeNetClassificationCNN-Krizhevsky}. This procedure is similar to the on processes happening when an biological eye receives stimuli.
+\\
+The receptive field \footnote{\url{http://en.wikipedia.org/wiki/Receptive_field}} has a vast amount of photoreceptor cells \footnote{\url{http://en.wikipedia.org/wiki/Photoreceptor_cell}} gathering information and converging the received information on to distinctly less retinal ganglion cells \footnote{\url{http://en.wikipedia.org/wiki/Retinal_ganglion_cell}}. This process maps several features and reduces the input dimensionality as well as distinguishes the information to separate "channels" which are then transfered to the corresponding neurons to process features such as color, motion, shapes and so on separately \cite{DeepHierarchiesVisualCortex-kruger}.
+\\
+The idea of CNNs is based on this biological processes, the information of an input image is convolved by several filters which try to extract interesting features in the first layer and in following layers this information is pooled and subsampled \cite{ImangeNetClassificationCNN-Krizhevsky}.
+\\
+Convolution itself is the applying of a function repeatedly of the output of another function and in the context of CNNs it is applying different "filters" over an image to extract the already mentioned features. A convolution layer extracts the pixel information out of an image with kernels \footnote{\url{http://en.wikipedia.org/wiki/Kernel_(image_processing)}}.
+\\
+\\
+Example for a convolution layer: In figure \ref{fig:animal-edge-detection} you can see an image of an animal on the left side (original image) and a kernel processed one on the right side. The used kernel matrix was:
+\begin{equation}
+	\label{equation:kernal-matrix}
+	\begin{bmatrix}
+	-1 & -1 & -1 \\
+	-1 & 8 & -1 \\
+	-1 & -1 & -1 \\
+	\end{bmatrix}
+\end{equation}
+So basically each pixels information in the right, processed image is the result of applying the kernel matrix (\ref{equation:kernal-matrix}) on the same pixel (and the neighboring pixels) in the left image.
+
+\begin{figure}
+  	\centerline{
+  		\includegraphics[width=0.3\textwidth]{animal-original.png}
+  		\qquad
+  		\includegraphics[width=0.3\textwidth]{animal-edge-detection.png}
+  		}
+ 	{\caption{Left side: original image, right side: edge-detection kernel processed image. Original image by Michael Plotke, 28th of January, 2013. Open creative commons license.
+ 	\protect\url{http://upload.wikimedia.org/wikipedia/commons/5/50/Vd-Orig.png} and \protect\url{http://upload.wikimedia.org/wikipedia/commons/6/6d/Vd-Edge3.png}}\label{fig:animal-edge-detection}}
+ \end{figure}
 
 
 
+\section{Research and field of application}
+\label{sec:research_and_application}
 
-\section{Object detection and tracking}
-\label{sec:obj_detection_tracking}
 
-More details / information about state of the art object detection and tracking.
+\subsection{Image classification}
+More details / information about state of the art object/image detection/classification.
+
+
+\subsection{Video classification}
+More details / information about state of the art object/video detection/classification.
+
+
+\subsection{Object tracking}
 
 
 
