@@ -41,6 +41,12 @@ Norbert Kruger, Peter Janssen, Sinan Kalkan, Markus Lappe, Ales Leonardis,
 \newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
   on}, 35(8):1847--1871, 2013.
 
+\bibitem{GoogLeNet}
+Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir
+  Anguelov, Dumitru Erhan, Vincent Vanhoucke, and Andrew Rabinovich.
+\newblock Going deeper with convolutions.
+\newblock {\em CoRR}, abs/1409.4842, 2014.
+
 \bibitem{DeepNeuralNetworksObjectDetection-Szegedy}
 Christian Szegedy, Alexander Toshev, and Dumitru Erhan.
 \newblock Deep neural networks for object detection.
