@@ -1,0 +1,42 @@
+Paper Title: Gedächtnis bilden und nutzen
+Paper Author: Schulz, Sabrina; Öhlenschläger, Vivian
+
+# Da das Paper auf Deutsch geschrieben wurde, halte ich diese Evaluierung ebenfalls auf Deutsch.
+
+A. Summary of the paper:
+In dem Paper wird ein ausführlicher Überblick über den Versuch der biologischen und informatikgestützten Modellierung von Gedächtnisprozessen gegeben. Die Ausarbeitung stützt sich auf aktuelle biologische Erkenntnisse und beschreibt diese um einen Einblick in die Funktionsweisen des Hippocampus, der Hirnrinde, der Place Fields / Place Cells usw. zu geben. Gewonnene Einsichten aus den Modellen werden verwendet, um künstliches Lernen zu erforschen und zu ermöglichen. Dies wird in dem Paper vor allem durch Hopfield-Netzwerke und die Boltzmann Maschine dargestellt.
+
+B. Strengths of the paper:
+- Die Zusammenfassung ist angenehm neutral geschrieben und erwähnt meines Erachtens nach alle wichtigen Themenbereiche.
+- Die Einleitung ist sehr ausführlich, dies ermöglicht zwar nicht unbedingt einen schnellen Einstieg in die Thematik, dafür aber einen Umfangreichen. Eventuell wäre das, je nach beabsichtigten Publikum diskussionswürdig, ich finde das aber durchaus sehr positiv.
+- Die mathematischen und konzeptionellen Grundlagen von Hopfield Netzen und der Boltzmann Maschine sind auf Seite 11/12 sehr anschaulich und gut verständlich zusammengefasst, der Einstieg in die Materie ist definitiv gelungen, dem Leser bleiben kaum offene Fragen, wodurch das weitere Textverständnis gefördert wird.
+- Grafiken werden weder über- noch unterrepräsentiert und sinnvoll zur Unterstützung eingesetzt.
+- Satzbau und Sprache ermöglichen ein schnelles Textverständnis.
+
+
+C. Weaknesses of the paper:
+- Einige Passagen sind recht lang und teilweise mit sehr wenigen Quellen belegt. Beispielsweise auf den Seiten 7-9 wird zwar anschaulich die mentale Erkundung dargestellt, aber nur anfangs ein Paper von Hopfield genannt, welches sich mit dem zugrundeliegenden Modell des angesprochenen neuronalen Netzes beschäftigt.Weitere, danach angesprochene Konzepte, sind teilweise nicht mit Quellenangaben versehen. Die Zitierung von Quelle [8] auf Seite 8 ist in dem Literaturverzeichnis nicht angegeben - Paper fehlt?!
+- In der Diskussion auf Seite 13 wird das T-förmige Labyrinth mit (Figur 5) gekennzeichnet, eine derartig beschriftete Darstellung existiert aber nicht in dem Paper. Abbildung 3.1 sollte dort wohl stehen?!
+- In der Diskussion und im Fazit und Ausblick  wird, erneut, kein Bezug zu der zugrundeliegenden Literatur hergestellt.
+- Die Einführung und Erklärung der Modelle ist sehr gut gelungen, durch den Umfang dieser Abschnitte ist aber, im Vergleich dazu, die nicht weniger interessante Diskussion sowie der Abschluss durch Fazit und Ausblick etwas kurz. 
+
+
+D. Short evaluations
+
+D1. Coverage of the Field:
+Die Themen wurden ausreichend bearbeitet und weiter, sehr deskriptiver Bogen geschlagen. Damit werden dem Leser umfassende Informationen zur Einführung, den Modellen, der Anwendung und den daraus gezogenen Schlüssen bereitgestellt.
+
+D2. Depth of the topic:
+Mit Ausnahme der Diskussion/Fazit und Ausblick wurden meines Erachtens alle Teilbereiche/Thematiken des Papers sehr gut und tief bearbeitet, sowie diese Informationen dem Leser auf nützliche Art und Weise zur Verfügung gestellt.
+
+D3. Critical elaboration:
+Das Paper stellt eine gute Lektüre für die ausgewählten Disziplinen dar, ein größerer Bezug zu anderen und/oder ähnlichen Modellen wäre aber ebenso wie mehr aktuelle Paper für eine kritische Gegenüberstellung im letzten Abschnitt des Papers eine Bereicherung gewesen. Ich würde behaupten, dass eine solche Komplettierung dieses Werkes dann eine rundum auf hohem Niveau gehaltene Fachliteratur darstellt.
+
+D4. Presentation:
+An der Präsentation des Papers ist mir nichts Negatives aufgefallen. Es wirkt klar strukturiert, sinnvoll aufgebaut sowie stilistisch einheitlich. Auf ästhetische Aspekte werde ich nicht eingehen, jenes hat meiner Meinung nach keinen bedeutsamen Wert für wissenschaftliche Literatur. Abgesehen davon wäre Derartiges ohnehin größtenteils nur subjektiv bewertbar.
+
+
+E. Detailed comments to the author:
+Ich denke, alles Wichtige wurde erwähnt.
+Mehr Zitierungen & mehr Diskussion/Fazit würde nicht schaden, ansonsten alles top/wunderbar :)
+
