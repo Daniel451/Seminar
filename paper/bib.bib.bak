@@ -2,6 +2,18 @@
 % Encoding: UTF-8
 
 
+@Article{Multi-column-dnn-for-traffic-signs-ciresan,
+  Title                    = {Multi-column deep neural network for traffic sign classification},
+  Author                   = {Cire{\c{s}}an, Dan and Meier, Ueli and Masci, Jonathan and Schmidhuber, J{\"u}rgen},
+  Journal                  = {Neural Networks},
+  Year                     = {2012},
+  Pages                    = {333--338},
+  Volume                   = {32},
+
+  Owner                    = {daniel},
+  Timestamp                = {2015.06.27}
+}
+
 @Article{MultiColumnDeepNeuralNetworksClassification-Ciresan,
   Title                    = {Multi-column deep neural networks for image classification},
   Author                   = {Ciresan, D. and Meier, U. and Schmidhuber, J.},
@@ -47,6 +59,20 @@ anada}
   Author                   = {Andrej Karpathy and George Toderici and Sanketh Shetty and Thomas Leung and Rahul Sukthankar and Li Fei-Fei},
   Booktitle                = {CVPR},
   Year                     = {2014}
+}
+
+@Article{Invariances-Neural-Network-Khotanzad,
+  Title                    = {Classification of invariant image representations using a neural network},
+  Author                   = {Khotanzad, Alireza and Lu, Jiin-Her},
+  Journal                  = {Acoustics, Speech and Signal Processing, IEEE Transactions on},
+  Year                     = {1990},
+  Number                   = {6},
+  Pages                    = {1028--1038},
+  Volume                   = {38},
+
+  Abstract                 = {A neural network (NN) based approach for classification of images represented by translation-, scale-, and rotation-invariant features is presented. The utilized network is a multilayer perceptron (MLP) classifier with one hidden layer. Back-propagation learning is used for its training. Two types of features are used: moment invariants derived from geometrical moments of the image, and features based on Zernlike moments, which are the mapping of the image onto a set of complex orthogonal polynomials. The performance of the MLP is compared to the Bayes, nearest-neighbor, and minimum-mean-distance statistical classifiers. Through extensive experimentation with noiseless as well as noisy binary images of all English characters (26 classes), the following conclusions are reached: (1) the MLP outperforms the other three classifiers, especially when noise is present; (2) the nearest-neighbor classifier performs about the same as the NN for the noiseless case; (3) the NN can do well even with a very small number of training samples; (4) the NN has a good degree of fault tolerance; and (5) the Zernlike-moment-based features possess strong class separability power and are more powerful than moment invariants.},
+  Owner                    = {daniel},
+  Timestamp                = {2015.06.27}
 }
 
 @InCollection{ImangeNetClassificationCNN-Krizhevsky,
@@ -98,7 +124,7 @@ anada}
  Scott Reed and
  Dragomir Anguelov and
  Dumitru Erhan and
- Vincent Vanhoucke
+ Vincent Vanhoucke and
  Andrew Rabinovich},
   Journal                  = {CoRR},
   Year                     = {2014},

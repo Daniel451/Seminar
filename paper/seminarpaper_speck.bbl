@@ -6,6 +6,11 @@ D.~Ciresan, U.~Meier, and J.~Schmidhuber.
 \newblock {\em Computer Vision and Pattern Recognition (CVPR), 2012 IEEE
   Conference on}, pages 3642 -- 3649, June 2012.
 
+\bibitem{Multi-column-dnn-for-traffic-signs-ciresan}
+Dan Cire{\c{s}}an, Ueli Meier, Jonathan Masci, and J{\"u}rgen Schmidhuber.
+\newblock Multi-column deep neural network for traffic sign classification.
+\newblock {\em Neural Networks}, 32:333--338, 2012.
+
 \bibitem{RectifiedLinearUnits-Hinton}
 Geoffrey~E. Hinton.
 \newblock Rectified linear units improve restricted boltzmann machines vinod
@@ -25,6 +30,13 @@ Andrej Karpathy, George Toderici, Sanketh Shetty, Thomas Leung, Rahul
   Sukthankar, and Li~Fei-Fei.
 \newblock Large-scale video classification with convolutional neural networks.
 \newblock In {\em CVPR}, 2014.
+
+\bibitem{Invariances-Neural-Network-Khotanzad}
+Alireza Khotanzad and Jiin-Her Lu.
+\newblock Classification of invariant image representations using a neural
+  network.
+\newblock {\em Acoustics, Speech and Signal Processing, IEEE Transactions on},
+  38(6):1028--1038, 1990.
 
 \bibitem{ImangeNetClassificationCNN-Krizhevsky}
 Alex Krizhevsky, Ilya Sutskever, and Geoffrey~E. Hinton.
