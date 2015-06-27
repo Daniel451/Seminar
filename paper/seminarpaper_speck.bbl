@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{MultiColumnDeepNeuralNetworksClassification-Ciresan}
 D.~Ciresan, U.~Meier, and J.~Schmidhuber.
@@ -40,6 +40,12 @@ Norbert Kruger, Peter Janssen, Sinan Kalkan, Markus Lappe, Ales Leonardis,
   computer vision?
 \newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
   on}, 35(8):1847--1871, 2013.
+
+\bibitem{AgingNeocortex-AmountOfSynapses}
+Bente Pakkenberg, Dorte Pelvig, Lisbeth Marner, Mads~J. Bundgaard, Hans
+  J{\o}rgen~G. Gundersen, Jens~R. Nyengaard, and Lisbeth Regeur.
+\newblock Aging and the human neocortex.
+\newblock {\em Experimental gerontology}, 38(1):95--99, 2003.
 
 \bibitem{GoogLeNet}
 Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir
