@@ -1,0 +1,42 @@
+Paper Title: Deep Learning: Neural Networks for Object Detection and Tracking Tasks
+Paper Author: Daniel Speck
+
+A. Summary of the paper:
+The paper gives an overview of how CNNs are constructed, their inner mathematical workings, the biologoical inspirations and lastly the present successes in using CNNs for recognition of different medias.
+
+B. Strengths of the paper:
+- explains a lot of related concepts clearly
+- a comprehensible in-depth look into the mathematical roots of different CNN concepts
+
+C. Weaknesses of the paper:
+- some passages are a bit convoluted
+- While I'm not against it, I don't know what the general opinion about referencing wikipedia is in academia
+- could have split up the biological background into separate section
+
+
+D. Short evaluations
+
+D1. Coverage of the Field:
+Extensive
+
+D2. Depth of the topic:
+Explores all the important aspects of the topic in adequate depth.
+
+D3. Critical elaboration:
+I have nothing more to add
+
+D4. Presentation:
+More diagrams might have been helpful.
+
+E. Detailed comments to the author:
+
+Abstract:
+"are one of the most successful learning"
+Either "is" or "are the most successful"
+
+"creating such structures rised"
+"has risen"
+
+Intro:
+"will be viewed in detail"
+I would go for "reviewed"

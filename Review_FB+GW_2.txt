@@ -1,0 +1,38 @@
+Paper Title: Deep Neural Networks: Exploring PyBrain and Caffe
+Paper Author: Gregor Weber, Fabian Beterke
+
+A. Summary of the paper:
+
+In der Ausarbeitung werden die beiden neuronalen Netzwerkbibliotheken ‚PyBrain‘ und ‚Caffe‘ dargestellt und verglichen (Möglichkeiten, Funktionen, Benutzerfreundlichkeit). Darüber hinaus wird ein Einblick in die Thematik des neurobiologisichen Prozesses skizziert. 
+
+
+B. Strengths of the paper:
+
+Die Ausarbeitung ist strukturiert und folgt einem roten Faden. Der Inhalt kann ohne erweiterte Vorkenntnisse weitestgehend verstanden und rekonstruiert werden.
+
+C. Weaknesses of the paper:
+
+- fehlendes Abbildungsverzeichnis (falls dieses gefordert ist)
+- fehlende Quelle bei Abbildung 3
+
+D. Short evaluations
+
+D1. Coverage of the Field:
+
+Ausführliche und saubere Beschreibung
+
+D2. Depth of the topic:
+
+Die Thematik wird m. E. tiefgründig und ausreichend betrachtet 
+
+D3. Critical elaboration:
+
+Kritische Betrachtung der beiden Bibliotheken -> gut umgesetzt
+
+D4. Presentation:
+
+- Abbildungen unterstützen das Textverständnis
+- Quelltext wird übersichtlich und anschaulich dargestellt und erklärt
+
+E. Detailed comments to the author:
+–

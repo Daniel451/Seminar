@@ -1,0 +1,40 @@
+Paper Title: Deep Neural Networks: Exploring PyBrain and Caffe
+Paper Author: Fabian Beterke, Gregor Weber
+
+A. Summary of the paper:
+The authors compare the two neural network libraries, PyBrain and Caffe. They do so by giving some insight into the workflows of the libraries
+and compare their performances and ease of use. Additionally a basic introduction into the field of neural networks is provided. 
+In conclusion PyBrain is a great introducory level library, while Caffe is relevant in professional application of these kind of libraries.
+
+B. Strengths of the paper:
+The paper is easy to read and understand. Even with little knowledge the content can be comprehended. 
+As far as I am able to tell the language is on point, too.
+Overall the paper is informative and critically evaluates the libraries at hand. 
+Fitting figures make the paper visually appealing.
+
+C. Weaknesses of the paper:
+There are smaller mistakes in some technical aspects. 
+The abstract does not quite fulfill the requirements given and the introduction is very plane.
+Some figures are not introduced in the text beforehand, some not even at all and figure 3 seems to be missing a source. 
+Also the reader gets adressed directly in some parts of the library introductions
+making it seem more like a tutorial on how to use it, than a scientific paper.
+
+D. Short evaluations
+
+D1. Coverage of the Field:
+Good info on neural networks, maybe there are some more alternatives to the libraries that could be mentioned? 
+
+D2. Depth of the topic:
+The paper analyzes the libraries as profound as possible in the time given. Nothing really to criticize.
+
+D3. Critical elaboration:
+The analysis is as critical as it is possible for a comparison of two software libraries. Again nothing really to criticize.
+
+D4. Presentation:
+Great visualisations of data and code. Maybe some more detailed legends could be included in the caption for some of the figures, 
+explaining what the different axes describe.
+
+E. Detailed comments to the author:
+Maybe read Prof. Webers E-Mail with tips for the paper again. Other than that, the paper is already quite good in its current form.
+Maybe you should introduce the concept of overfitting to the reader, 
+because it seems like an important possible problem and isn't really explained.

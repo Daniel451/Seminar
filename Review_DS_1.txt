@@ -1,0 +1,104 @@
+Paper Title: Deep Learning: Neural Networks for Object Detection and
+             Tracking tasks
+Paper Author: Daniel Speck
+
+A. Summary of the paper:
+
+   The paper points out the benefits of deep convolutional neural
+   networks in classification tasks, especially image recognition and
+   classification on static images, but also on video. The paper
+   briefly touches the topic of movement tracking.
+   Convolution is discussed in detail and an example for an image
+   classifier is 
+   
+
+B. Strengths of the paper:
+
+   The background section about artificial neural networks is very
+   brief and still gets the necessary information across in an easy to
+   understand way.  A good introduction to convolutional neural
+   networks is provided and the biological context is explained. A
+   very good explanation of convolution and kernel matrices is given,
+   with additional concrete mathematical examples and the edge
+   detection image makes the concept easy to grasp. The paper touches
+   on the most important techniques for dimensionality reduction using
+   pooling and subsampling. It also provides a good example for image
+   classification, an ImageNet classifier. This section also includes
+   information about data efficiency, which I found to be particulary
+   interesting.
+
+
+C. Weaknesses of the paper:
+
+   "Artifical neural networks are intended to approximate certain
+   functions [...]." Which functions?
+   
+   "However, such architectures are insufficient [...] because they
+   need a vast amount of resources [...]." No reference of explanation
+   provided as to why that is the case. Surely it depends very much on
+   the implementation of the neural network.
+   
+   "several features", "interesting features" (page 6): No examples
+   are given besides edge detection. Later on it is mentioned that the
+   classifier for the ImageNet competition uses 96 different
+   features. What are those? Or are these features not understandable
+   for a human?
+   
+   The architecture of the ImageNet classifier needs a few more words
+   of explanation. How many classes are use for classifying? I suppose
+   4096 but I am not entirely sure.
+
+   I would love to have more comparissons of the techniques to
+   alternatives and to see more of a "abilites" vs "limits". The idea
+   of splitting fovea and overall vision seems logical from a
+   biological perspective, but does it actually work?
+
+   Object tracking: "One supposed solution is the use of stacked
+   denoising autoencoders to learn common features of a dataset and
+   then have an additional deep neural network for tracking those
+   learned patterns over time." "stacked denoising autoencoders"? This
+   section really does not add any value to the paper, because as it
+   is mentioned "Object tracking [...] is an even more complex
+   scenario [...]." and one paragraph simply is not enough.
+
+
+D. Short evaluations
+
+D1. Coverage of the Field:
+
+    I believe tackling three different topics at once gives a good
+    overview, but the depth of the indiviual topics suffers. Or the
+    paper should have been two to three pages longer. 
+
+
+D2. Depth of the topic:
+
+    Image classification was discussed in a very nice depth. Only a
+    little more details about different classes and features would be
+    nice. For video, it only adds the time dimension and therefore
+    fits nicely with the rest of the paper. Though fusion needs
+    addtitional explanation.
+
+    The object tracking section is way to shallow and I would drop it
+    in favor of the other two topics. 
+
+
+D3. Critical elaboration:
+
+    Limits of the techniques presented are not shown enough. In the
+    conclusion the author does point out that there is still room for
+    improvement but only bases this on error rates, though it shows
+    that a critical approach to the topic was taken. 
+
+
+D4. Presentation:
+
+    You use these " things too much. Page 7: "dropout", "familiarize"
+    and "deactivating" in one paragraph.
+
+    The images on page 3 and 8 could be smaller and integrated into the
+    text blocks like the kernel matrix on page 5.
+
+
+E. Detailed comments to the author:
+   

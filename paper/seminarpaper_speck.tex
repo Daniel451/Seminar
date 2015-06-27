@@ -60,6 +60,7 @@
 \usepackage{tabularx}										% Tables with fixed width but variable rows
 \usepackage{url,xspace,boxedminipage}   % Accurate display of URLs
 \usepackage{wrapfig} % wrapped figures (with text floating around)
+\usepackage{csquotes}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Configurationen:
@@ -82,6 +83,9 @@
 
 % Tables with a nicer padding:
 \renewcommand{\arraystretch}{1.2}
+
+% Pagelength
+\setlength{\textheight}{650pt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Additional 'theorem' and 'definition' blocks:
@@ -169,7 +173,7 @@
 
 % Abstract gives a brief summary of the main points of a paper:
 \section*{Abstract}
-Deep learning and the interrelated deep neural networks are one of the most successful learning strategies at the moment as the computing power for creating such structures rised in the past years via GPU computing. Image and video classifcation, object detection and tracking tasks can be fulfilled with these architectures which perform far better than more classical ones. One focus will be convolutional neural networks and the latest research on (mostly supervised) deep learning architectures.
+Deep learning and the interrelated deep neural networks are one of the most successful learning strategies at the moment as the computing power for creating such structures rose in the past years via GPU computing. Image and video classification, object detection and tracking tasks can be fulfilled with these architectures which perform far better than more classical ones. One focus will be convolutional neural networks and the latest research on (mostly supervised) deep learning architectures.
   
 
 % Lists:
@@ -197,17 +201,9 @@ Deep learning and the interrelated deep neural networks are one of the most succ
 \section{Introduction}
 \label{sec:introduction}
 
-Big data is one of the most present keywords in the last couple of years. With more and more devices being able to capture high-resolution images and videos the data and information available on the internet increases rapidly, rather exponentially but all this data is useless if this flood of information can not be searched, categorized and made easy accessible for humans. As a consequence of this situation classic, mostly static algorithms are "out-of-date" and new, intelligent systems have to be developed. Biological entities are, up to now, by far better when it comes to recognize, classify, sort etc. images or videos compared to computers. This circumstance led to researching intelligent systems that are able to adapt to their input, search for patterns and recognize, track and classify them.
+Big data is a popular keyword in the last couple of years. With more and more devices being able to capture high-resolution images and videos, the data and information available on the internet increases rapidly, rather exponentially, but all this data is useless if this flood of information can not be searched, categorized and made easily accessible for humans. As a consequence of this situation classic, mostly static algorithms are \enquote{out-of-date} and new, intelligent systems have to be developed. Biological entities are, up to now, by far better when it comes to recognize, classify, sort etc. images or videos compared to computers. This circumstance led to researching intelligent systems that are able to adapt to their input, search for patterns and recognize, track and classify them.
 \\
-Inspired by biological systems, deep learning and especially convolutional neural networks have become popular because their results in classification and tracking tasks are state-of-the-art.
-\\
-In this paper, a basic, background information view about artificial neural networks will be given for understanding the underlying concepts which are important to solve complex problems with machine learning architectures.
-\\
-In addition to that a comprehension of deep neural networks and deep learning will be made to point out the abilities but also the limits of "classic" neural networks. Also some information about the role of GPU-computing in such disciplines will be provided.
-\\
-For solving complex problems in classification, recognition, tracking etc. domains convolutional neural networks have shown good performances so they will be focused later on. Especially the latest research on these topics and fields of application will be viewed in detail.
-\\
-An important contest for classification tasks is measuring the performance of such architectures with the ImageNet LSVRC databases and for videos the YouTube 1M database by Google. Both topics will be introduced. One very interesting thing, for example, is the fact that pre-trained networks on videos showing sports did better on non-sports related video categorization than "fresh" networks.
+Inspired by biological systems, deep learning and especially convolutional neural networks have become popular because their results in classification and tracking tasks are state-of-the-art. In this paper a basic information view about artificial neural networks will be given for understanding the underlying concepts which are important to solve complex problems with machine learning architectures. In addition to that a comprehension of deep neural networks and deep learning will be made to point out the abilities but also the limits of \enquote{classic} neural networks. Also some information about the role of GPU-computing in such disciplines will be provided. For solving complex problems in classification, recognition, tracking etc. domains, convolutional neural networks have shown good performance in combination with GPU-computing, so they will be focused on. Especially the latest research on these topics and fields of application will be viewed in detail. An important contest for classification tasks is measuring the performance of such architectures with the ImageNet LSVRC databases and for videos with the YouTube 1M database by Google. Both topics will be introduced. One interesting fact is that pre-trained networks on videos showing sports did better on non-sports related video categorization than \enquote{fresh} networks. This is indicating an abstract, deep correlation between different domains in recognition tasks.
 
 
 
@@ -216,20 +212,14 @@ An important contest for classification tasks is measuring the performance of su
 \section{Background information: Artificial neural networks}
 \label{sec:ann}
 
-Artificial neural networks are intended to approximate certain functions for machine learning purposes. Fix/static algorithms can be calculated fast by modern computers but fail most times at disciplines requiring "intelligent" behavior. A classic example is recognizing handwritten digits because the shape, color and contrast highly vary in dependence of the used pencil and, of course, of the writing style. As a result classic, static algorithms would fail to identify those varying patterns and therefore fail to appropriately classify handwritten digits.
-\\
-Such tasks can be fulfilled by artificial neural networks. A common architecture is the multilayer-perceptron as shown in figure \ref{fig:mlp1}.
-\\
-This artificial neural network, for example, could be used to classify handwritten digits. The images information of input size 5x5, which results in 25 pixels, would be used by the 25 neurons in the input layer. The hidden layers would try to extract the features which are characteristically for each digit and the output layer with 10 neurons models the digits 0 to 9 for representing the calculated digit.
-\\
-However, such architectures are insufficient for more complex tasks because they need a vast amount of resources, are not optimized and do not make use of any prior-knowledge of the problem. Non-deep structures where every layer is fully-connected turned out to be expensive in terms of computational resources and not optimal considering the results in disciplines of image and video classification, object recognition and tracking.
 
-\begin{figure}[H]
-	\centerline{
-		\includegraphics[width=0.5\textwidth]{neuralnet1.pdf}
-	}
-	{\caption{An example of a classic, fully-connected multilayer-perceptron. The input layer holds 20 neurons, hidden layer 1 10 neurons, hidden layer 2 5 neurons and the output layer 2 neurons. All arrows but the short ones represent randomly initialized weights.}\label{fig:mlp1}}
-\end{figure}
+Artificial neural networks are intended to approximate certain functions for machine learning purposes. They are intended to model learning processes. Fix/static algorithms can be calculated fast by modern computers but fail most times at disciplines requiring enquote{intelligent} behavior. A classic example is recognizing handwritten digits because the shape, color and contrast highly vary in dependence of the used pencil and, of course, of the writing style. As a result, classic, static algorithms would fail to identify those varying patterns and therefore fail to appropriately classify handwritten digits. Such tasks can be fulfilled by artificial neural networks. A common architecture is the multilayer-perceptron as shown in figure \ref{fig:mlp1}.
+\begin{wrapfigure}{r}{0.5\textwidth}
+	\includegraphics[width=0.5\textwidth]{neuralnet1.pdf}
+	{\caption{An example of a classic, fully-connected multilayer-perceptron. The input layer holds 20 neurons, hidden layer 1 has 10 neurons, hidden layer 2 has 5 neurons and the output layer 2 neurons. All arrows but the short ones represent randomly initialized weights.}\label{fig:mlp1}}
+\end{wrapfigure}
+This artificial neural network, for example, could be used to classify handwritten digits. A database of hundreds of images would be needed for training the network accurately, using just a few training samples normally causes overfitting. The images information of input size 5x5, which results in 25 pixels, would be encoded by the 25 neurons in the input layer. The hidden layers would try to extract the features which are characteristic for each digit and the output layer with 10 neurons models the digits 0 to 9 for representing the calculated digit. Therefore each neuron of the output layer would give the probability for each digit (0-9) that it was this digit showing up in the input image. However, such architectures are insufficient for more complex tasks because they need a vast amount of resources, are not optimized and do not make use of any prior-knowledge of the problem. Non-deep structures where every layer is fully-connected turned out to be expensive in terms of computational resources and not optimal considering the results in disciplines of image and video classification, object recognition and tracking.
+
 
 
 
@@ -238,11 +228,7 @@ However, such architectures are insufficient for more complex tasks because they
 \section{Deep neural networks}
 \label{sec:dnn}
 
-Classic, small neural networks can not succeed on complex tasks such as object detection in high-resolution, real world images. The variety of features, blurry backgrounds, one or several objects in an image and other factors render detection, tracking and classification tasks challenging. The ability to detect, track and distinguish real world objects demands complex structures with a much larger capability of solving complex problems.
-\\
-As computing power rises and GPU-computing became popular neural networks are no longer limited to a few layers containing just some neurons. Modern solutions (2014) can carry tens of layers with thousands of neurons and millions of connections \cite{GoogleLargeScaleVideoClassification-Karpathy}. Complex structures like this enable computing complex problems which arise with tasks like image classification in real world images.
-\\
-Deep neural networks with GPU-optimized code can be considerably faster than CPU-optimized code and hence allow larger, more accurate architectures \cite{MultiColumnDeepNeuralNetworksClassification-Ciresan}.
+Classic, small neural networks cannot succeed on complex tasks such as object detection in high-resolution, real world images. The variety of features, blurry backgrounds, one or several objects in an image and other factors render detection, tracking and classification tasks challenging. The ability to detect, track and distinguish real world objects demands complex structures with a much larger capability of solving complex problems. As computing power rises and GPU-computing became popular, neural networks are no longer limited to a few layers containing just some neurons. Modern solutions (in the year 2014) can carry tens of layers with thousands of neurons and millions of connections \cite{GoogleLargeScaleVideoClassification-Karpathy}. Complex structures like this enable computing complex problems which arise with tasks like image classification in real world images. To fulfill those assignments deep neural networks are used in combination with GPU-optimized code which is considerably faster than CPU-optimized code and hence allows larger, more accurate architectures \cite{MultiColumnDeepNeuralNetworksClassification-Ciresan}.
 
 
 
@@ -257,19 +243,19 @@ For example, a MLP with three layers, an input layer with 100 neurons, a hidden 
 \\
 Convolutional neural networks (CNNs) are inspired by biology, instead of connecting every pixels information directly with a neuron to process its information it filters the information in the first layers \cite{ImangeNetClassificationCNN-Krizhevsky}. This procedure is similar to the on processes happening when an biological eye receives stimuli.
 \\
-The receptive field \footnote{\url{http://en.wikipedia.org/wiki/Receptive_field}} has a vast amount of photoreceptor cells \footnote{\url{http://en.wikipedia.org/wiki/Photoreceptor_cell}} gathering information and converging the received information on to distinctly less retinal ganglion cells \footnote{\url{http://en.wikipedia.org/wiki/Retinal_ganglion_cell}}. This process maps several features and reduces the input dimensionality as well as distinguishes the information to separate "channels" which are then transfered to the corresponding neurons to process features such as color, motion, shapes and so on separately \cite{DeepHierarchiesVisualCortex-kruger}.
+The receptive field \footnote{\url{http://en.wikipedia.org/wiki/Receptive_field}} has a vast amount of photoreceptor cells \footnote{\url{http://en.wikipedia.org/wiki/Photoreceptor_cell}} gathering information and converging the received information on to distinctly less retinal ganglion cells \footnote{\url{http://en.wikipedia.org/wiki/Retinal_ganglion_cell}}. This process maps several features and reduces the input dimensionality as well as distinguishes the information to separate enquote{channels} which are then transfered to the corresponding neurons to process features such as color, motion, shapes and so on separately \cite{DeepHierarchiesVisualCortex-kruger}.
 \begin{figure}
 	\centerline{
 		\includegraphics[width=0.3\textwidth]{animal-original.png}
 		\qquad
 		\includegraphics[width=0.3\textwidth]{animal-edge-detection.png}
 	}
-	{\caption{Left side: original image, right side: edge-detection kernel processed image. Original image by Michael Plotke, 28th of January, 2013. Open creative commons license.
+	{\caption{Left side: original image (greyscaled), right side: edge-detection kernel processed image. Original image by Michael Plotke, 28th of January, 2013. Open creative commons license.
 			\protect\url{http://upload.wikimedia.org/wikipedia/commons/5/50/Vd-Orig.png} and \protect\url{http://upload.wikimedia.org/wikipedia/commons/6/6d/Vd-Edge3.png}}\label{fig:animal-edge-detection}}
 \end{figure}
 The idea of CNNs is based on this biological processes, the information of an input image is convolved by several filters which try to extract interesting features in the first layer and in following layers this information is pooled and subsampled \cite{ImangeNetClassificationCNN-Krizhevsky}.
 \\
-Convolution itself is the applying of a function repeatedly of the output of another function and in the context of CNNs it is applying different "filters" over an image to extract the already mentioned features. A convolution layer extracts the pixel information out of an image with kernels \footnote{\url{http://en.wikipedia.org/wiki/Kernel_(image_processing)}}.
+Convolution itself is the applying of a function repeatedly of the output of another function and in the context of CNNs it is applying different enquote{filters} over an image to extract the already mentioned features. A convolution layer extracts the pixel information out of an image with kernels \footnote{\url{http://en.wikipedia.org/wiki/Kernel_(image_processing)}}.
 \\
 \\
 Example for a convolution layer: In figure \ref{fig:animal-edge-detection} you can see an image of an animal on the left side (original image) and a kernel processed one on the right side. The used kernel matrix for filtering the left image is shown in equation (\ref{equation:kernal-matrix}).
@@ -323,7 +309,7 @@ The last layers of a CNN regularly consist of fully-connected layers. In compari
 
 \subsection{Image classification}
 
-Alex Krizhevsky et al. have shown in "ImageNet Classification with Deep Convolutional Neural Networks" \cite{ImangeNetClassificationCNN-Krizhevsky} the good performance of CNNs in image classification tasks. Their architecture achieved top-1 and top-5 error rates of 37.5\% and 17.0\% on the ImageNet LSVRC-2010 contest which was the best result in 2012.
+Alex Krizhevsky et al. have shown in \enquote{ImageNet Classification with Deep Convolutional Neural Networks} \cite{ImangeNetClassificationCNN-Krizhevsky} the good performance of CNNs in image classification tasks. Their architecture achieved top-1 and top-5 error rates of 37.5\% and 17.0\% on the ImageNet LSVRC-2010 contest which was the best result in 2012.
 \\
 The CNN consists of about $650,000$ neurons with $60$ million parameters and nine layers total.
 \\
@@ -339,7 +325,7 @@ One key problem with deep learning structures and especially CNNs is overfitting
 This technique can boost the training data set by hundreds or even thousands of samples \cite{ImangeNetClassificationCNN-Krizhevsky}.
 \\
 \\
-Another procedure to reduce overfitting and test errors is called "dropout" \cite{ImprovingNeuralNetworksDropout-Hinton-Krizhevsky}. The idea is to set the output of hidden neurons to zero with a certain probability, mostly $0.5$ \cite{ImangeNetClassificationCNN-Krizhevsky}. This prevents neurons of co-adapting each other which means that neurons can no longer distort its output because they "familiarize" with some neurons of their parent layer and ignore others. With "deactiviting" random neurons in each learning step the presence of an other neuron is not guaranteed so neurons are more likely to learn and focus on robust features rather than on single attractive neurons.
+Another procedure to reduce overfitting and test errors is called \enquote{dropout} \cite{ImprovingNeuralNetworksDropout-Hinton-Krizhevsky}. The idea is to set the output of hidden neurons to zero with a certain probability, mostly $0.5$ \cite{ImangeNetClassificationCNN-Krizhevsky}. This prevents neurons of co-adapting each other which means that neurons can no longer distort its output because they \enquote{familiarize} with some neurons of their parent layer and ignore others. With deactiviting random neurons in each learning step the presence of an other neuron is not guaranteed so neurons are more likely to learn and focus on robust features rather than on single attractive neurons.
 \\
 This has shown especially effective when applied in fully-connected layers \cite{ImangeNetClassificationCNN-Krizhevsky}.
 \\
@@ -353,7 +339,7 @@ In Krizhevsky's architecture the 25\% error rate on the CIFAR-10 training datase
 
 A more challenging and likewise interesting task is the classification of videos because instead of images where the input remains static the input of videos changes over time.
 \\
-CNNs already showed "state-of-the-art" results in image recognition and classification tasks so experiments with videos were just a matter of time. A huge problem was the changing input of videos over time in combination with the long periods of training for CNNs. One solution figured out by a group of researchers of Stanford and Google was to improve the runtime performance. They split up the input data in two different streams, the "context" and the "fovea" stream and created a multiresolutional architecture \cite{GoogleLargeScaleVideoClassification-Karpathy}.
+CNNs already showed state-of-the-art results in image recognition and classification tasks so experiments with videos were just a matter of time. A huge problem was the changing input of videos over time in combination with the long periods of training for CNNs. One solution figured out by a group of researchers of Stanford and Google was to improve the runtime performance. They split up the input data in two different streams, the \textit{context} and the \textit{fovea stream} and created a multiresolutional architecture \cite{GoogleLargeScaleVideoClassification-Karpathy}.
 \\
 The original input dimension was 178x178. The fovea stream keeps track of the centered 89x89 pixels of a frame while the context stream analyzes the whole frame but downsampled to a size of 89x89 total. Therefore the total input dimensionality is halfed \cite{GoogleLargeScaleVideoClassification-Karpathy}. An illustration of this architecture is shown in figure \ref{fig:google-architecture-two-streams}.
 \\
@@ -373,7 +359,7 @@ According to Karpathy et al. \cite{GoogleLargeScaleVideoClassification-Karpathy}
 	\centerline{
 		\includegraphics[width=0.95\textwidth]{google-architecture.png}
 	}
-	{\caption{CNN architecture by Karpathy et al. The input information is processed in parallel by the two streams. Graphics retrieved from "Large-scale Video Classification with Convolutional Neural Networks" by Andrej Karpathy et al. \cite{GoogleLargeScaleVideoClassification-Karpathy}}\label{fig:google-architecture-two-streams}}
+	{\caption{CNN architecture by Karpathy et al. The input information is processed in parallel by the two streams. Graphics retrieved from \enquote{Large-scale Video Classification with Convolutional Neural Networks} by Andrej Karpathy et al. \cite{GoogleLargeScaleVideoClassification-Karpathy}}\label{fig:google-architecture-two-streams}}
 \end{figure}
 
 
@@ -392,12 +378,12 @@ Also some kind of preprocessing with particle filters showed good results for tr
 \section{Conclusion}
 \label{sec:concl}
 
-In the beginning of 2012 the best top-5 error rate on ImageNet was 16.4\% by Team "SuperVision" and in 2014 the best top-5 error rate was 6.67\% by Team GoogLeNet \cite{GoogLeNet}. This shows the rapid development of deep learning and CNNs but also that there is enough potential for even further improvement. At least for the next years the performance of humans in classifying images will be unmatched which indicates that todays models have to be improved.
+In the beginning of 2012 the best top-5 error rate on ImageNet was 16.4\% by \enquote{Team SuperVision} and in 2014 the best top-5 error rate was 6.67\% by Team GoogLeNet \cite{GoogLeNet}. This shows the rapid development of deep learning and CNNs but also that there is enough potential for even further improvement. At least for the next years the performance of humans in classifying images will be unmatched which indicates that todays models have to be improved.
 \\
 In many papers \cite{GoogLeNet, DeepNeuralNetworksObjectDetection-Szegedy, ImangeNetClassificationCNN-Krizhevsky, LearningDeepCompactImageTracking-Wang, MultiColumnDeepNeuralNetworksClassification-Ciresan} researchers say improving the computational resources also improves machine learning architectures because CNNs and other neural network architectures could deliver better results if they would be enlarged (which is not possible with current resources) but also new concepts, filters and architectures can improve machine learning.
 \\
 On the one hand CNNs are one or maybe the most promising architecture at the moment \cite{GoogLeNet, ImangeNetClassificationCNN-Krizhevsky} with astounding results in classification tasks. Larger CNNs, more training data, enhanced precision and perhaps some architectural / mathematical improvements are likely to boost their performance even further.
-On the other hand (although they are less resource demanding than pure, fully-connected neural networks for example) their resource consumption is relatively high and as shown in "Deep Hierarchies In The Primate Visual Cortex" \cite{DeepHierarchiesVisualCortex-kruger} they are not equivalent nor equally effective as biological neural architectures. This displays that CNNs can only be a temporal model but not the ultimate solution and new architectures should be researched.
+On the other hand (although they are less resource demanding than pure, fully-connected neural networks for example) their resource consumption is relatively high and as shown in \enquote{Deep Hierarchies In The Primate Visual Cortex} \cite{DeepHierarchiesVisualCortex-kruger} they are not equivalent nor equally effective as biological neural architectures. This displays that CNNs can only be a temporal model but not the ultimate solution and new architectures should be researched.
 
 
 
