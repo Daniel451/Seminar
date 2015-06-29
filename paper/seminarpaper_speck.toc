@@ -8,5 +8,5 @@
 \contentsline {subsection}{\numberline {5.1}Image classification}{6}
 \contentsline {subsection}{\numberline {5.2}Video classification}{8}
 \contentsline {subsection}{\numberline {5.3}Object tracking}{8}
-\contentsline {section}{\numberline {6}Conclusion}{9}
-\contentsline {section}{Bibliography}{10}
+\contentsline {section}{\numberline {6}Conclusion}{10}
+\contentsline {section}{Bibliography}{11}

@@ -215,7 +215,7 @@ Inspired by biological systems, deep learning and especially convolutional neura
 \label{sec:ann}
 
 
-Artificial neural networks are intended to approximate certain functions for machine learning purposes. They are intended to model learning processes. Fix/static algorithms can be calculated fast by modern computers but fail most times at disciplines requiring enquote{intelligent} behavior. A classic example is recognizing handwritten digits because the shape, color and contrast highly vary in dependence of the used pencil and, of course, of the writing style. As a result, classic, static algorithms would fail to identify those varying patterns and therefore fail to appropriately classify handwritten digits. Such tasks can be fulfilled by artificial neural networks. A common architecture is the multilayer-perceptron as shown in figure \ref{fig:mlp1}.
+Artificial neural networks are intended to approximate certain functions for machine learning purposes. They are intended to model learning processes. Fix/static algorithms can be calculated fast by modern computers but fail most times at disciplines requiring \enquote{intelligent} behavior. A classic example is recognizing handwritten digits because the shape, color and contrast highly vary in dependence of the used pencil and, of course, of the writing style. As a result, classic, static algorithms would fail to identify those varying patterns and therefore fail to appropriately classify handwritten digits. Such tasks can be fulfilled by artificial neural networks. A common architecture is the multilayer-perceptron as shown in figure \ref{fig:mlp1}.
 \begin{wrapfigure}{r}{0.5\textwidth}
 	\includegraphics[width=0.5\textwidth]{neuralnet1.pdf}
 	{\caption{An example of a classic, fully-connected multilayer-perceptron. The input layer holds 20 neurons, hidden layer 1 has 10 neurons, hidden layer 2 has 5 neurons and the output layer 2 neurons. All arrows but the short ones represent randomly initialized weights.}\label{fig:mlp1}}
@@ -320,7 +320,7 @@ Another idea of CNNs are subsampling layers, which follow convolutional layers. 
 A max-pooling algorithm splits the input in grids and selects the maximum value out of each grid, thus non-maximal values are deleted so that only that information continues to exist which represents the current feature best \cite{GoogLeNet, ImangeNetClassificationCNN-Krizhevsky}.
 Before applying max-pooling the input represents the presence of a feature in one or only some pixels. After this kind of dimensionality reduction the assertion is enlarged to a greater area, corresponding to several pixels of the original image. Szegedy et al. have made heavy use of this approach in \enquote{GoogLeNet} \cite{GoogLeNet}.
 Additionally, this technique provides robustness to the position of a feature in an image, as the position becomes less important. Thereupon the extracted features are representing invariances, which are needed for classifying the collected information regardless of its position, rotation or scaling \cite{Invariances-Neural-Network-Khotanzad}.
-The last layers of a CNN regularly consist of fully-connected layers. In comparison to feature extraction, strengthening and dimensionality reduction, those layers are supposed to take all gathered features/information and make predictions \cite{DeepNeuralNetworksObjectDetection-Szegedy, Multi-column-dnn-for-traffic-signs-ciresan, MultiColumnDeepNeuralNetworksClassification-Ciresan}. E.g. if the supplied input contains big shapes of ears, legs etc., filtered trunks, grey-ish color maps and so on, the fully-connected layers have to collect and mix all those gathered features/information and recognize it for finally classifying it as an image of elephants.
+The last layers of a CNN regularly consists of fully-connected layers. In comparison to feature extraction, strengthening and dimensionality reduction, those layers are supposed to take all gathered features/information and make predictions \cite{DeepNeuralNetworksObjectDetection-Szegedy, Multi-column-dnn-for-traffic-signs-ciresan, MultiColumnDeepNeuralNetworksClassification-Ciresan}. E.g. if the supplied input contains big shapes of ears, legs etc., filtered trunks, grey-ish color maps and so on, the fully-connected layers have to collect and mix all those gathered features/information and recognize it for finally classifying it as an image of elephants.
 
 
 
@@ -330,69 +330,77 @@ The last layers of a CNN regularly consist of fully-connected layers. In compari
 
 \subsection{Image classification}
 
-For measuring the performance of a neural network top-1 and top-5 error rates have become popular. While letting a neural network classify some input with test data the probabilities for each class are recorded. The error rates are arithmetic means of all test samples:
+For measuring the performance of a neural network top-1 and top-5 error rates have become popular \cite{ImangeNetClassificationCNN-Krizhevsky}. While letting a neural network classify some input test data the probabilities calculated by the network for each class are recorded. The error rates are arithmetic means of all test samples.
 \begin{gather}
 	\label{equation:top-1-error-rate}
-	\text{top-1 error rate} = \sum_{S_i} x \;
-	\begin{cases}
+	\text{top-1 error rate} =
+	\frac{
+		\displaystyle
+		\sum_{S} x \;
+		\begin{cases}
 		1, & \text{if guessed class matches actual class of $S_i$} \\
 		0, & \text{otherwise}
-	\end{cases}
+		\end{cases}}
+		{|S|}
 \end{gather}
 \begin{gather}
 	\label{equation:top-5-error-rate}
-	\text{top-5 error rate} = \sum_{S_i} x \;
-	\begin{cases}
-	1, & \text{if the actual class of $S_i$ is one of the top 5} \\
-	   & \text{probabilities guessed by the neural network} \\
-	0, & \text{otherwise}
-	\end{cases}
+	\text{top-5 error rate} =
+	\frac{
+		\displaystyle
+		\sum_{S} x \;
+		\begin{cases}
+		1, & \text{if the actual class of $S_i$ is one of the top 5} \\
+		& \text{probabilities guessed by the neural network} \\
+		0, & \text{otherwise}
+		\end{cases}}
+		{|S|}
 \end{gather}
-$S_i$ is the current test sample while S contains all test samples.
+$S_i$ is the current test sample while S contains all test samples. If an architecture involves several independent CNNs, the predictions get averaged first and then follow the same procedure shown in equation (\ref{equation:top-1-error-rate}) and (\ref{equation:top-5-error-rate}).
 Alex Krizhevsky et al. have shown in \enquote{ImageNet Classification with Deep Convolutional Neural Networks} \cite{ImangeNetClassificationCNN-Krizhevsky} the good performance of CNNs in image classification tasks. Their architecture achieved top-1 and top-5 error rates of 37.5\% and 17.0\% on the ImageNet LSVRC-2010 contest which was the best result in 2012.
-The CNN consists of about $650,000$ neurons with $60$ million parameters and nine layers total.
-The only preprocessing made was resizing the images to a resolution of 256x256 because the images in ImageNet vary in resolution. Out of those images 224x224x3 dimensional patches are extracted. 224x224 in horizontal/vertical dimension and 3 different colors (RBG images). The first layer is a convolution layer which filters the input of 224x224x3 to a kernel map of 96 kernels with the size of 11x11x3 each. This slightly reduces the dimensionality of the input image and extracts 96 different features out of the input.
-\\
+The CNN consists of about $650,000$ neurons with $60$ million parameters and nine layers in total.
+The only preprocessing made was resizing the images to a resolution of 256x256 because the images in ImageNet vary in resolution. Out of those images 224x224x3 dimensional patches are extracted. 224x224 in horizontal/vertical dimension and 3 different colors (RBG images). The first layer is a convolution layer which filters the input of 224x224x3 to a kernel map of 96 kernels with the size of 11x11x3 each. This slightly reduces the dimensionality of the input image and extracts 96 different features out of the input. Those features are anything that could be characteristic for the images.
 The second layer is a max-pooling layer which filters the information via 256 5x5x48 kernels. Therefore the dimensionality is further reduced and already extracted features strengthened.
+Afterwards convolutional and max-pooling layers follow the fifth layer until three fully-connected layers with 4096 neurons each try to collect and mix the information and then classify the images. The last layer has 1000 neurons representing the 1000 classes of ILSVRC, so a probability for each class is returned.
 \\
-Afterwards convolutional and max-pooling layers follow the the fifth layer until three fully-connected layers with 4096 neurons each try to collect and mix the information and then classify the images.
+One key problem with deep learning structures and especially CNNs is overfitting. Due to the size of those networks, a huge amount of training data is needed. An interesting method for reducing overfitting used by Krizhevsky et. al. is to design the first layer (224x224x3 for Krizhevsky's architecture) slightly smaller than the input data (256x256x3).
+So instead of applying kernel filters on those input data (256x256x3) they first extract random 224x224x3 patches out of the original data.
+This guarantees slightly different versions of each image when it is used for training the network and therefore extends the amount of training data.
+Additionally they use horizontal reflections of those patches and altered the intensities of the RGB channels.
+This technique can boost the number of available training data by a factor of hundreds or even thousands (depending on how many different color manipulated versions are used) \cite{ImangeNetClassificationCNN-Krizhevsky}.
 \\
-One key problem with deep learning structures and especially CNNs is overfitting. Because of the size of those networks a huge amount of training data is needed. An interesting method used by Krizhevsky is to design first layer (224x224x3 for Krizhevsky's architecture) slightly smaller than input data (256x256x3) and then not just apply kernel filters on those input data but first extract random 224x224x3 patches out of the original data. Additionally they the horizontal reflections of those patches and altered the intensities of the RGB channels.
-\\
-This technique can boost the training data set by hundreds or even thousands of samples \cite{ImangeNetClassificationCNN-Krizhevsky}.
-\\
-Another procedure to reduce overfitting and test errors is called \enquote{dropout} \cite{ImprovingNeuralNetworksDropout-Hinton-Krizhevsky}. The idea is to set the output of hidden neurons to zero with a certain probability, mostly $0.5$ \cite{ImangeNetClassificationCNN-Krizhevsky}. This prevents neurons of co-adapting each other which means that neurons can no longer distort its output because they \enquote{familiarize} with some neurons of their parent layer and ignore others. With deactiviting random neurons in each learning step the presence of an other neuron is not guaranteed so neurons are more likely to learn and focus on robust features rather than on single attractive neurons.
-\\
+Another procedure to reduce overfitting and test errors is called \enquote{dropout} \cite{ImprovingNeuralNetworksDropout-Hinton-Krizhevsky}. The idea is to set the output of hidden neurons to zero with a certain probability, mostly $0.5$ \cite{ImangeNetClassificationCNN-Krizhevsky}. This prevents neurons of co-adapting to each other, which means that neurons can no longer distort their output, because they cannot \enquote{familiarize} anymore with some neurons of their parent layer and ignore others. With deactivating neurons randomly in each learning step the presence of another neuron is not guaranteed so neurons are more likely to learn and focus on robust features rather than on single attractive input neurons.
 This has shown especially effective when applied in fully-connected layers \cite{ImangeNetClassificationCNN-Krizhevsky}.
 \\
-Normally the transfer function for a neurons output is modeled a hyperbolic tangent or sigmoid function but those functions can increase the training time \cite{ImangeNetClassificationCNN-Krizhevsky}. Using Rectified Linear Units (ReLUs) \cite{RectifiedLinearUnits-Hinton} with a function like $f(x) = max(0, x)$ not only makes CNNs train a lot faster but also slightly reduces the training error, because low training error rates are reached faster (in less epochs) the whole network concentrates on robust features faster and this has an additional effect of convergence.
-\\
+Normally the transfer function for a neuron's output is modeled as a hyperbolic tangent or sigmoid function, but those functions can increase the training time \cite{ImangeNetClassificationCNN-Krizhevsky}. Using Rectified Linear Units (ReLUs) \cite{RectifiedLinearUnits-Hinton} with a function like $f(x) = max(0, x)$ not only makes CNNs train a lot faster, but also slightly reduces the training error. Since low training error rates are reached faster (in less epochs) the whole network concentrates on robust features faster and this has an additional effect on convergence.
 In Krizhevsky's architecture the 25\% error rate on the CIFAR-10 training dataset is reached six times faster with ReLUs than with classic hyperbolic tangent transfer functions \cite{ImangeNetClassificationCNN-Krizhevsky}.
 
 
 \subsection{Video classification}
 
 A more challenging and likewise interesting task is the classification of videos because instead of images where the input remains static the input of videos changes over time.
+CNNs already showed state-of-the-art results in image recognition and classification tasks, so experiments with videos were just a matter of time. One problem was the changing of input over time in videos in combination with the long periods of training for CNNs. A solution figured out by a group of researchers of Stanford and Google was to improve the runtime performance. They split up the input data in two different streams, the \enquote{context stream} and the \enquote{fovea stream} to create a multiresolutional architecture \cite{GoogleLargeScaleVideoClassification-Karpathy}.
+The original input dimension of this approach was 178x178. The fovea stream keeps track of the centered 89x89 pixels of a frame while the context stream analyzes the whole frame but downsampled to a size of 89x89 in total. Therefore the total input dimensionality is halved \cite{GoogleLargeScaleVideoClassification-Karpathy}. An illustration of this architecture is shown in figure \ref{fig:google-architecture-two-streams}.
 \\
-CNNs already showed state-of-the-art results in image recognition and classification tasks so experiments with videos were just a matter of time. A huge problem was the changing input of videos over time in combination with the long periods of training for CNNs. One solution figured out by a group of researchers of Stanford and Google was to improve the runtime performance. They split up the input data in two different streams, the \textit{context} and the \textit{fovea stream} and created a multiresolutional architecture \cite{GoogleLargeScaleVideoClassification-Karpathy}.
-\\
-The original input dimension was 178x178. The fovea stream keeps track of the centered 89x89 pixels of a frame while the context stream analyzes the whole frame but downsampled to a size of 89x89 total. Therefore the total input dimensionality is halfed \cite{GoogleLargeScaleVideoClassification-Karpathy}. An illustration of this architecture is shown in figure \ref{fig:google-architecture-two-streams}.
-\\
-Four different solutions have been introduced by Karpathy et al. to create CNNs capable of classifying videos properly: Single Frame, Early Fusion, Late Fusion and Slow Fusion.
-\\
-Single Frame classification is an adoption already used for classifying images: only one image is being classified at a time.
-\\
-Early Fusion combines the pixel input information for a specific time window.
-\\
-Late Fusion calculates two different single frames which are combined at the last fully-connected layers.
-\\
-Slow Fusion is a mix of Early and Late Fusion: Several input images pixel information is combined two several streams and those streams are additionally combined every few layers.
-\\
-According to Karpathy et al. \cite{GoogleLargeScaleVideoClassification-Karpathy} Slow Fusion had the best results with top-1 and top-5 error rates of 60.9\% and 80.2\%.
+Four different solutions have been introduced by Karpathy et al. \cite{GoogleLargeScaleVideoClassification-Karpathy} to create CNNs capable of classifying videos properly: \enquote{Single Frame}, \enquote{Early Fusion}, \enquote{Late Fusion} and \enquote{Slow Fusion}.
+\begin{itemize}
+	\item Single Frame classification is an adoption already used for classifying images: only one image is being classified at a time.
+	\item Early Fusion combines the pixel input information for a specific time window.
+	\item Late Fusion calculates two different single frames which are combined at the last fully-connected layers.
+	\item Slow Fusion is a mix of Early and Late Fusion: Several input images\footnote{The frames are consecutive in time.} pixel information  is combined and the streams are additionally combined every few layers. So it is achieved via extending the connectivity between the convolutional layers.
+\end{itemize}
+According to Karpathy et al. \cite{GoogleLargeScaleVideoClassification-Karpathy}, Slow Fusion had the best results with top-1 and top-5 error rates of 60.9\% and 80.2\%.
 
 \begin{figure}
 	\centerline{
 		\includegraphics[width=0.95\textwidth]{google-architecture.png}
+	}
+	{\caption{CNN architecture by Karpathy et al. The input information is processed in parallel by the two streams. Graphics retrieved from \enquote{Large-scale Video Classification with Convolutional Neural Networks} by Andrej Karpathy et al. \cite{GoogleLargeScaleVideoClassification-Karpathy}}\label{fig:google-architecture-two-streams}}
+\end{figure}
+
+\begin{figure}
+	\centerline{
+		\includegraphics[width=0.95\textwidth]{GoogleVideoFilters.pdf}
 	}
 	{\caption{CNN architecture by Karpathy et al. The input information is processed in parallel by the two streams. Graphics retrieved from \enquote{Large-scale Video Classification with Convolutional Neural Networks} by Andrej Karpathy et al. \cite{GoogleLargeScaleVideoClassification-Karpathy}}\label{fig:google-architecture-two-streams}}
 \end{figure}
@@ -413,12 +421,15 @@ Also some kind of preprocessing with particle filters showed good results for tr
 \section{Conclusion}
 \label{sec:concl}
 
-In the beginning of 2012 the best top-5 error rate on ImageNet was 16.4\% by \enquote{Team SuperVision} and in 2014 the best top-5 error rate was 6.67\% by Team GoogLeNet \cite{GoogLeNet}. This shows the rapid development of deep learning and CNNs but also that there is enough potential for even further improvement. At least for the next years the performance of humans in classifying images will be unmatched which indicates that todays models have to be improved.
+In the beginning of 2012 the best top-5 error rate on ImageNet was 16.4\% by \enquote{Team SuperVision} and in 2014 the best top-5 error rate was 6.67\% by Team GoogLeNet \cite{GoogLeNet}. This shows the rapid development of deep learning and CNNs but also that there is enough potential for even further improvement. At least for the next years the performance of humans in classifying images will be unmatched, which indicates that todays models have to be improved.
 \\
-In many papers \cite{GoogLeNet, DeepNeuralNetworksObjectDetection-Szegedy, ImangeNetClassificationCNN-Krizhevsky, LearningDeepCompactImageTracking-Wang, MultiColumnDeepNeuralNetworksClassification-Ciresan} researchers say improving the computational resources also improves machine learning architectures because CNNs and other neural network architectures could deliver better results if they would be enlarged (which is not possible with current resources) but also new concepts, filters and architectures can improve machine learning.
+In many papers \cite{GoogLeNet, DeepNeuralNetworksObjectDetection-Szegedy, ImangeNetClassificationCNN-Krizhevsky, LearningDeepCompactImageTracking-Wang, MultiColumnDeepNeuralNetworksClassification-Ciresan} researchers say improving the computational resources also improves machine learning architectures, because CNNs and other neural network architectures could deliver better results if they would be enlarged (which is not possible with current resources) but this would also require larger training data sets to prevent overfitting. Therefore new concepts, filters and architectures can improve machine learning and should be considered.
 \\
 On the one hand CNNs are one or maybe the most promising architecture at the moment \cite{GoogLeNet, ImangeNetClassificationCNN-Krizhevsky} with astounding results in classification tasks. Larger CNNs, more training data, enhanced precision and perhaps some architectural / mathematical improvements are likely to boost their performance even further.
-On the other hand (although they are less resource demanding than pure, fully-connected neural networks for example) their resource consumption is relatively high and as shown in \enquote{Deep Hierarchies In The Primate Visual Cortex} \cite{DeepHierarchiesVisualCortex-kruger} they are not equivalent nor equally effective as biological neural architectures. This displays that CNNs can only be a temporal model but not the ultimate solution and new architectures should be researched.
+On the other hand (although less resource demanding than fully-connected neural networks) their resource consumption is relatively high and as shown in \enquote{Deep Hierarchies In The Primate Visual Cortex} \cite{DeepHierarchiesVisualCortex-kruger} they are not equivalent nor equally effective as biological neural architectures. This displays that CNNs can only be a temporary model but not the ultimate solution and new architectures should be researched.
+(CNNs vergrößern)
+(biologische, visuelle Systeme haben weniger Layer)
+(andere Architekturen?)
 
 
 
