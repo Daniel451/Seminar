@@ -63,6 +63,11 @@ Katja Nummiaro, Esther Koller-Meier, and Luc Van~Gool.
 \newblock Object tracking with an adaptive color-based particle filter.
 \newblock In {\em Pattern Recognition}, pages 353--360. Springer, 2002.
 
+\bibitem{HigherOrderVisualProcessing}
+Guy~A Orban.
+\newblock Higher order visual processing in macaque extrastriate cortex.
+\newblock {\em Physiological Reviews}, 88(1):59--89, 2008.
+
 \bibitem{AgingNeocortex-AmountOfSynapses}
 Bente Pakkenberg, Dorte Pelvig, Lisbeth Marner, Mads~J. Bundgaard, Hans
   J{\o}rgen~G. Gundersen, Jens~R. Nyengaard, and Lisbeth Regeur.

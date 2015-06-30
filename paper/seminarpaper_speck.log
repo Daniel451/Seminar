@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.6.12)  30 JUN 2015 02:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.6.12)  30 JUN 2015 05:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -677,38 +677,40 @@ Underfull \hbox (badness 1178) in paragraph at lines 411--413
  []
 
 [9 <./src/google-architecture.png (PNG copy)> <./src/GoogleVideoFilters.pdf>]
-[10]
-Missing character: There is no Ã in font cmr12!
-Missing character: There is no ¶ in font cmr12!
-Missing character: There is no Ã in font cmr12!
-Missing character: There is no Ÿ in font cmr12!
- [11] (./seminarpaper_speck.bbl [12]) [13] (./seminarpaper_speck.aux) ) 
+[10] <./src/VisualCortex.pdf, id=108, 569.12625pt x 487.8225pt>
+File: ./src/VisualCortex.pdf Graphic file (type pdf)
+
+<use ./src/VisualCortex.pdf>
+Package pdftex.def Info: ./src/VisualCortex.pdf used on input line 442.
+(pdftex.def)             Requested size: 183.59628pt x 157.3718pt.
+ [11 <./src/VisualCortex.pdf>] [12]
+(./seminarpaper_speck.bbl [13]) [14] (./seminarpaper_speck.aux) ) 
 Here is how much of TeX's memory you used:
- 7435 strings out of 493105
- 102583 string characters out of 6137072
- 210952 words of memory out of 5000000
- 10708 multiletter control sequences out of 15000+600000
+ 7444 strings out of 493105
+ 102802 string characters out of 6137072
+ 210966 words of memory out of 5000000
+ 10716 multiletter control sequences out of 15000+600000
  12837 words of font info for 50 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
- 38i,20n,43p,1883b,327s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on seminarpaper_speck.pdf (15 pages, 1192059 bytes).
+ 38i,20n,43p,2185b,327s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on seminarpaper_speck.pdf (16 pages, 2373060 bytes).
 PDF statistics:
- 165 PDF objects out of 1000 (max. 8388607)
- 107 compressed objects within 2 object streams
+ 176 PDF objects out of 1000 (max. 8388607)
+ 114 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
