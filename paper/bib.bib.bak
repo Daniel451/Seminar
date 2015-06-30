@@ -27,6 +27,18 @@
   Timestamp                = {2015.04.27}
 }
 
+@InCollection{GenerativeDiscriminativeTrackerBook,
+  Title                    = {Semi-supervised on-line boosting for robust tracking},
+  Author                   = {Grabner, Helmut and Leistner, Christian and Bischof, Horst},
+  Booktitle                = {Computer Vision--ECCV 2008},
+  Publisher                = {Springer},
+  Year                     = {2008},
+  Pages                    = {234--247},
+
+  Owner                    = {daniel},
+  Timestamp                = {2015.06.29}
+}
+
 @Conference{RectifiedLinearUnits-Hinton,
   Title                    = {Rectified Linear Units Improve Restricted Boltzmann Machines Vinod Nair},
   Author                   = {Geoffrey E. Hinton},
@@ -101,6 +113,31 @@ anada}
   Publisher                = {IEEE}
 }
 
+@InCollection{ParticleFilterObjectTracking,
+  Title                    = {Object tracking with an adaptive color-based particle filter},
+  Author                   = {Nummiaro, Katja and Koller-Meier, Esther and Van Gool, Luc},
+  Booktitle                = {Pattern Recognition},
+  Publisher                = {Springer},
+  Year                     = {2002},
+  Pages                    = {353--360},
+
+  Owner                    = {daniel},
+  Timestamp                = {2015.06.29}
+}
+
+@Article{HigherOrderVisualProcessing,
+  Title                    = {Higher order visual processing in macaque extrastriate cortex},
+  Author                   = {Orban, Guy A},
+  Journal                  = {Physiological Reviews},
+  Year                     = {2008},
+  Number                   = {1},
+  Pages                    = {59--89},
+  Volume                   = {88},
+
+  Owner                    = {daniel},
+  Timestamp                = {2015.06.30}
+}
+
 @Article{AgingNeocortex-AmountOfSynapses,
   Title                    = {Aging and the human neocortex},
   Author                   = {Pakkenberg, Bente and Pelvig, Dorte and Marner, Lisbeth and Bundgaard, Mads J. and Gundersen, Hans J{\o}rgen G. and Nyengaard, Jens R. and Regeur, Lisbeth},
@@ -161,5 +198,17 @@ anada}
   Owner                    = {daniel},
   Timestamp                = {2015.04.27},
   Url                      = {http://papers.nips.cc/paper/5192-learning-a-deep-compact-image-representation-for-visual-tracking.pdf}
+}
+
+@InProceedings{GenerativeDiscriminativePerformanceBenchmark,
+  Title                    = {Online object tracking: A benchmark},
+  Author                   = {Wu, Yi and Lim, Jongwoo and Yang, Ming-Hsuan},
+  Booktitle                = {Computer vision and pattern recognition (CVPR), 2013 IEEE Conference on},
+  Year                     = {2013},
+  Organization             = {IEEE},
+  Pages                    = {2411--2418},
+
+  Owner                    = {daniel},
+  Timestamp                = {2015.06.29}
 }
 

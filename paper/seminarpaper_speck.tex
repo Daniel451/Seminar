@@ -389,7 +389,8 @@ Four different solutions have been introduced by Karpathy et al. \cite{GoogleLar
 	\item Late Fusion calculates two different single frames which are combined at the last fully-connected layers.
 	\item Slow Fusion is a mix of Early and Late Fusion: Several input images\footnote{The frames are consecutive in time.} pixel information  is combined and the streams are additionally combined every few layers. So it is achieved via extending the connectivity between the convolutional layers.
 \end{itemize}
-According to Karpathy et al. \cite{GoogleLargeScaleVideoClassification-Karpathy}, Slow Fusion had the best results with top-1 and top-5 error rates of 60.9\% and 80.2\%.
+According to Karpathy et al. \cite{GoogleLargeScaleVideoClassification-Karpathy}, Slow Fusion had the best results with top-1 and top-5 error rates of 60.9\% and 80.2\%. This was reasonable, because the mix of single frame information with a variety of several input images over a specific time window in convolutional layers tries to extract features that are not only invariant for one frame, but robust over several frames and therefore stable over time.
+Those features proved the best performance for videos. Besides the single frame performance showed surprisingly good results with 59.3\% for the top-1 error rate and 77.7\% for the top-5 error rate. This shows that motion cannot be a strong feature for video classification but rather a \enquote{supporting} feature for finetuning the error rates.
 
 \begin{figure}
 	\centerline{
@@ -398,32 +399,43 @@ According to Karpathy et al. \cite{GoogleLargeScaleVideoClassification-Karpathy}
 	{\caption{CNN architecture by Karpathy et al. The input information is processed in parallel by the two streams. Graphics retrieved from \enquote{Large-scale Video Classification with Convolutional Neural Networks} by Andrej Karpathy et al. \cite{GoogleLargeScaleVideoClassification-Karpathy}}\label{fig:google-architecture-two-streams}}
 \end{figure}
 
-\begin{figure}
+\begin{wrapfigure}{r}{0.5\textwidth}
+	\vspace{-15pt}
 	\centerline{
-		\includegraphics[width=0.95\textwidth]{GoogleVideoFilters.pdf}
+		\includegraphics[width=0.5\textwidth]{GoogleVideoFilters.pdf}
 	}
-	{\caption{CNN architecture by Karpathy et al. The input information is processed in parallel by the two streams. Graphics retrieved from \enquote{Large-scale Video Classification with Convolutional Neural Networks} by Andrej Karpathy et al. \cite{GoogleLargeScaleVideoClassification-Karpathy}}\label{fig:google-architecture-two-streams}}
-\end{figure}
+	{\caption{Filters of the first convolutional layer of the context stream (left) and fovea stream (right) after training. Graphics retrieved from \enquote{Large-scale Video Classification with Convolutional Neural Networks} by Andrej Karpathy et al. \cite{GoogleLargeScaleVideoClassification-Karpathy}}\label{fig:google-architecture-learned-filters}
+		}
+\end{wrapfigure}
+
+\noindent The context stream and the fovea stream are focusing on different features. While the context stream is learning colors and overall low frequency features, which are more stable over time and do not alter heavily the fovea stream primarily focuses on greyscale and features with a high frequency \cite{GoogleLargeScaleVideoClassification-Karpathy}. This is shown in figure \ref{fig:google-architecture-learned-filters}.
+The learned features show that mostly robust, general features remain after training the network. Interestingly this robustness is not only limited to the domain which the network was trained for. For example, one experiment of Karpathy et. al. was to retrain the top 3 layers of their network\footnote{Originally, the network of Karpathy et. al. was solely trained with videos showing sports} with non-sports videos and compare it to an untrained network with the same architecture, but which was exclusively trained with non-sports videos. The original network performed better in total and also showed up with lower error rates in less epochs \cite{GoogleLargeScaleVideoClassification-Karpathy}. Aforementioned outcomes are indicating a faster learning process as well as better results for pre-trained networks when retraining them for previously unfamiliar domains. This leads to the idea of specific domains becoming less important during a training process, especially in the back layers of an artificial neural network. Consequently the network tries to focus on generic features for recognizing objects rather than limiting on domain specific characteristics.
+
+
+
+
 
 
 \subsection{Object tracking}
 
 Object tracking in videos is an even more complex scenario because some object in a video has to be recognized and followed by its position over time. Varying background, changing in the lighting, unexpected motions etc. render this a challenging task.
+Another complicating factor of tracking objects visually in terms of learning is the presence of only one training instance, especially when there is no prior knowledge to the object that should be tracked \cite{LearningDeepCompactImageTracking-Wang}. Obviously, when an architecture consists of a single, supervised network this fact would highly boost overfitting.
+Generally existing tracking solutions use generative or discriminative approaches \cite{GenerativeDiscriminativeTrackerBook}. Generative trackers try to identify an object and collect robust features of it. After this process is finished a generative tracker extrapolates any possible object in a later scene and calculates the probability that for each object being the original object. So basically the intention is to find characteristic features and learn them for relocating it later on in another scene with a certain probability.
+Contrary to this scenario discriminative trackers mainly focus on the differences between an object that should be tracked and the background, therefore they try to find features supporting to distinguish between the object and its background information \cite{GenerativeDiscriminativeTrackerBook}.
+As a consequence discriminative trackers are more successful, when image distortion, changing backgrounds, rapidly changed lighting and other background and object effecting alterations appear whereas generative trackers perform better in consistent environments due to their highly adaption to object specific features in those scenes \cite{GenerativeDiscriminativePerformanceBenchmark}.
 \\
-One supposed solution is the use of stacked denoising autoencoders to learn common features of a dataset and then have an additional deep neural network for tracking those learned patterns over time \cite{LearningDeepCompactImageTracking-Wang}.
-\\
-Also some kind of preprocessing with particle filters showed good results for tracking purposes \cite{LearningDeepCompactImageTracking-Wang}.
-\\
-(More to come - complex stuff has not be shortened and summarized enough until now)
+Particle filters are a commonly used technique for both, preprocessing data or finetuning the filter itself for tracking purposes. A particle filter analyzes an object and creates state vectors to keep track of certain distributions of features over time. Hence, such a filter can model objects, e.g. with the distribution of colors, and keep track of them \cite{ParticleFilterObjectTracking}. 
+One supposed solution for modern object tracking by Wang et. al. \cite{LearningDeepCompactImageTracking-Wang} is to combine preprocessing via particle filters with a mix of generative and discriminative trackers and neural networks. Before training or processing whole videos, they use 1 million randomly selected images out of a database of 80 million images to train a stacked denoising autoencoder. This procedure characterizes generic features of various domains, hence the problem of overfitting due to few training samples of one object that should be tracked is highly reduced. So the stacked denoising autoencoder learns common features of a large dataset. Subsequently the learned features can be extracted out of the encoding part of the stack denoising autoencoder and used for training the classification part of the neural network \cite{LearningDeepCompactImageTracking-Wang}. In addition to reduce overfitting it enables the neural network to differentiate between object features and background information, so this can be considered a learning alternative to classic discriminative trackers. If the scene changes significantly new features can be learned with the stacked denoising autoencoder readapting for the new scene. Once characteristic features are extracted, the neural network can be retrained with those features to ensure a better classification. For fulfilling this task the particle filter preprocesses each new frame and if the overall probability of formerly learned features comes below a certain, fixed threshold the scene is considered drastically changed and therefore the stacked denoising autoencoder and the neural network are retrained. Since the particle filter focuses on specific features of an object in the video this approach can be considered the generative tracker part.
 
 
 
 \section{Conclusion}
 \label{sec:concl}
 
-In the beginning of 2012 the best top-5 error rate on ImageNet was 16.4\% by \enquote{Team SuperVision} and in 2014 the best top-5 error rate was 6.67\% by Team GoogLeNet \cite{GoogLeNet}. This shows the rapid development of deep learning and CNNs but also that there is enough potential for even further improvement. At least for the next years the performance of humans in classifying images will be unmatched, which indicates that todays models have to be improved.
+The proposed approaches for object detection and tracking tasks demonstrate a large potential in the field of deep learning.
+In the beginning of 2012 the best top-5 error rate on ImageNet was 16.4\% by \enquote{Team SuperVision} and in 2014 the best top-5 error rate was 6.67\% by \enquote{Team GoogLeNet} \cite{GoogLeNet}. This shows the rapid development of deep learning and CNNs but also that there is enough potential for even further improvement. At least for the next years the performance of humans in classifying images will be unmatched, which indicates that todays models have to be improved.
 \\
-In many papers \cite{GoogLeNet, DeepNeuralNetworksObjectDetection-Szegedy, ImangeNetClassificationCNN-Krizhevsky, LearningDeepCompactImageTracking-Wang, MultiColumnDeepNeuralNetworksClassification-Ciresan} researchers say improving the computational resources also improves machine learning architectures, because CNNs and other neural network architectures could deliver better results if they would be enlarged (which is not possible with current resources) but this would also require larger training data sets to prevent overfitting. Therefore new concepts, filters and architectures can improve machine learning and should be considered.
+In many papers \cite{GoogLeNet, DeepNeuralNetworksObjectDetection-Szegedy, ImangeNetClassificationCNN-Krizhevsky, LearningDeepCompactImageTracking-Wang, MultiColumnDeepNeuralNetworksClassification-Ciresan} researchers say improving the computational resources also improves machine learning architectures, because CNNs and other neural network architectures could deliver better results if they would be enlarged (which is not possible with current resources) but this would also require larger training data sets to prevent overfitting since overfitting increases when too complex architectures have too many parameters compared to the amount of available training data. Therefore new concepts, filters and architectures can improve machine learning and should be considered. One possible approach is combining several solutions like Wang et. al. did \cite{LearningDeepCompactImageTracking-Wang} with implementing a preprocessing step with a particle filter and combine different types of neural networks afterwards.
 \\
 On the one hand CNNs are one or maybe the most promising architecture at the moment \cite{GoogLeNet, ImangeNetClassificationCNN-Krizhevsky} with astounding results in classification tasks. Larger CNNs, more training data, enhanced precision and perhaps some architectural / mathematical improvements are likely to boost their performance even further.
 On the other hand (although less resource demanding than fully-connected neural networks) their resource consumption is relatively high and as shown in \enquote{Deep Hierarchies In The Primate Visual Cortex} \cite{DeepHierarchiesVisualCortex-kruger} they are not equivalent nor equally effective as biological neural architectures. This displays that CNNs can only be a temporary model but not the ultimate solution and new architectures should be researched.

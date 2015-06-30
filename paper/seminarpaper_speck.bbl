@@ -11,6 +11,11 @@ Dan Cire{\c{s}}an, Ueli Meier, Jonathan Masci, and J{\"u}rgen Schmidhuber.
 \newblock Multi-column deep neural network for traffic sign classification.
 \newblock {\em Neural Networks}, 32:333--338, 2012.
 
+\bibitem{GenerativeDiscriminativeTrackerBook}
+Helmut Grabner, Christian Leistner, and Horst Bischof.
+\newblock Semi-supervised on-line boosting for robust tracking.
+\newblock In {\em Computer Vision--ECCV 2008}, pages 234--247. Springer, 2008.
+
 \bibitem{RectifiedLinearUnits-Hinton}
 Geoffrey~E. Hinton.
 \newblock Rectified linear units improve restricted boltzmann machines vinod
@@ -53,6 +58,11 @@ Norbert Kruger, Peter Janssen, Sinan Kalkan, Markus Lappe, Ales Leonardis,
 \newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
   on}, 35(8):1847--1871, 2013.
 
+\bibitem{ParticleFilterObjectTracking}
+Katja Nummiaro, Esther Koller-Meier, and Luc Van~Gool.
+\newblock Object tracking with an adaptive color-based particle filter.
+\newblock In {\em Pattern Recognition}, pages 353--360. Springer, 2002.
+
 \bibitem{AgingNeocortex-AmountOfSynapses}
 Bente Pakkenberg, Dorte Pelvig, Lisbeth Marner, Mads~J. Bundgaard, Hans
   J{\o}rgen~G. Gundersen, Jens~R. Nyengaard, and Lisbeth Regeur.
@@ -78,5 +88,11 @@ Naiyan Wang and Dit-Yan Yeung.
 \newblock In C.J.C. Burges, L.~Bottou, M.~Welling, Z.~Ghahramani, and K.Q.
   Weinberger, editors, {\em Advances in Neural Information Processing Systems
   26}, pages 809--817. Curran Associates, Inc., 2013.
+
+\bibitem{GenerativeDiscriminativePerformanceBenchmark}
+Yi~Wu, Jongwoo Lim, and Ming-Hsuan Yang.
+\newblock Online object tracking: A benchmark.
+\newblock In {\em Computer vision and pattern recognition (CVPR), 2013 IEEE
+  Conference on}, pages 2411--2418. IEEE, 2013.
 
 \end{thebibliography}
